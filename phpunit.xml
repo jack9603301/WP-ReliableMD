@@ -11,6 +11,8 @@
   <testsuites>
     <testsuite name="Plugin Test Suite">
       <directory prefix="test." suffix=".php">tests/wordpress/</directory>
+      <directory prefix="test." suffix=".php">tests/</directory>
+      <directory prefix="test." suffix=".php">tests/WP-ReliableMD</directory>
     </testsuite>
   </testsuites>
   <logging>

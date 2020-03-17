@@ -3,7 +3,7 @@
 /* Path to the WordPress codebase you'd like to test. Add a backslash in the end. */
 define( 'ABSPATH', dirname(dirname(dirname(dirname(__FILE__)))) . '/WP-ReliableMD/tests/wordpress/wordpress-framework/' );
  
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
  
 // WARNING WARNING WARNING!
 // tests DROPS ALL TABLES in the database. DO NOT use a production database
