@@ -15,7 +15,7 @@ before_install:
     - sudo service mysql restart
     - mysql -e 'create database wptest;'
     - mysql -e "CREATE USER 'wptest'@'localhost' IDENTIFIED BY 'wptest';"
-    - mysql -e "GRANT privileges ON wptest.* TO 'wptest'@'localhost';"
+    - mysql -e "GRANT ALL ON wptest.* TO 'wptest'@'localhost';"
     - mkdir -p tests/code_coverage/
 install:
   - composer require --dev php-coveralls/php-coveralls
