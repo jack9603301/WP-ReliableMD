@@ -18,8 +18,7 @@ before_install:
     - mysql -e "GRANT ALL ON wptest.* TO 'wptest'@'localhost';"
     - mkdir -p tests/code_coverage/
 install:
-  - composer require --dev php-coveralls/php-coveralls
-  - composer require --dev phpunit/phpunit
+  - composer install
 script:
  - php vendor/bin/phpunit
 after_success:
