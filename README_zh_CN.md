@@ -6,7 +6,7 @@
 
 ## 简介
 
-一个可靠、美观、功能强大的WordPress的markdown插件，同时支持支持编辑和渲染，为了替换一只猫的[WPEditor.md](http://www.baidu.com/link?url=4mx639Z2EtKhQfsIuZEPpealm9xdJ2gDDoUKQ45k4pM4g25NNBuv6emd2zH5jgl2ec32LdHLvuYAMT7UwTxSja&wd=&eqid=a3c93557000ab612000000065e75ee19)编辑器而开发，成为下一代markdown编辑器 
+一个可靠、美观、功能强大的WordPress的markdown插件，同时支持支持编辑和渲染，为了替换一只猫的[WPEditor.md](https://wordpress.org/plugins/wp-editormd/)编辑器而开发，成为下一代markdown编辑器 
 
 编辑器正在开发中，未正式发布，不建议使用
 
