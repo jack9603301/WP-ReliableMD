@@ -19,7 +19,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ## brief introduction
 
-A reliable, beautiful and powerful markdown plug-in of WordPress supports editing and rendering. It is developed to replace a cat's editor and become the next generation of markdown editor
+A reliable, beautiful and powerful markdown plug-in of WordPress supports editing and rendering. It is developed to replace a cat's [wpeditor. MD](https://wordpress.org/plugins/wp-editormd/) editor and become the next generation of markdown editor.
 
 
 Editor is under development, not officially released, not recommended
