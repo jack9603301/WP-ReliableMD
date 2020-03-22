@@ -1,0 +1,19 @@
+// @TODO: If eslint version updated, remove tslint and use eslint with typescript plugin
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "trailing-comma": false,
+    "max-classes-per-file": false,
+    "no-namespace": false,
+    "no-empty": false,
+    "arrow-parens": false,
+    "no-console": false,
+    "object-literal-sort-keys": false,
+    "no-unused-expression": false
+  }
+}
+

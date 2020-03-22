@@ -89,6 +89,8 @@ class Controller {
 
 		$this->WPReliableMD_Page_Init();   //初始化页面
 
+		$return = true;
+
 		return true;
 	}
 
