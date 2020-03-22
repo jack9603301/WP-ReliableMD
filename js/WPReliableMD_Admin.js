@@ -15,6 +15,8 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
             return {};
         }
     })();
+    
+
     $(document).ready(
         function () {
             var editor;
@@ -33,6 +35,14 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
             else {
                 content = 'title: Your title here';
             }
+
+            //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
+            $(".rmd-editor:lt(2)").each(function() {
+                console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
+                $(this).remove();
+            });
+
+
             editor = new Editor({
                 el: document.querySelector('#editSection'),
                 previewStyle: 'vertical',

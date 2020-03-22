@@ -54,16 +54,18 @@ class Controller {
 
 		?>
 
-        <div id="editor-title" style="margin-top: 1em;">
-            <h1>Input your text here</h1>
-        </div>
-
-        <div class="code-html">
-            <div id="editSection"></div>
-            <div style="text-align: right">
-                <button id="submit">Submit</button>
+		<div class="rmd-editor">
+            <div id="editor-title" style="margin-top: 1em;">
+                <h1>Input your text here</h1>
             </div>
-        </div>
+
+            <div class="code-html">
+                <div id="editSection"></div>
+                <div style="text-align: right">
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
+		</div>
 		<?php
 	}
 
