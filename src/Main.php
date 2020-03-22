@@ -12,19 +12,23 @@ class Main {
 
 	public function __construct() {
 
+		global $ReliableMDEnvironmentController;
+		global $ReliableMDRestController;
+		global $ReliableMDViewController;
 		global $ReliableMDAdminController;
+		global $ReliableMDMetaController;
 
 		add_action('plugins_loaded', array($this,'EnableLanguages'));
 
-		new EnvironmentController(); //初始化插件环境控制器
+		$ReliableMDEnvironmentController = new EnvironmentController(); //初始化插件环境控制器
 
-		new RestController();  //初始化REST控制器
+		$ReliableMDRestController = new RestController();  //初始化REST控制器
 
-		new ViewController(); //初始化前端渲染控制器
+		$ReliableMDViewController = new ViewController(); //初始化前端渲染控制器
 
 		$ReliableMDAdminController = new AdminController(); //初始化后台控制器
 
-		new MetaController(); //初始化插件元信息控制器
+		$ReliableMDMetaController = new MetaController(); //初始化插件元信息控制器
 
 	}
 

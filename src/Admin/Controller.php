@@ -91,7 +91,7 @@ class Controller {
 
 		$return = true;
 
-		return true;
+		return $return;
 	}
 
 	public function WPReliableMD_Config_Api() {
