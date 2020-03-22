@@ -39,8 +39,10 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
             //Check whether there is error output and repair automatically!
             if($(".rmd-editor").length >= 2) {
 
+                $indexsave = $(".rmd-editor").length - 1;
+
                 //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
-                $(".rmd-editor:lt(2)").each(function() {
+                $(".rmd-editor:lt(" + $indexsave + ")").each(function() {
                     console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
                     $(this).remove();
                 });
