@@ -36,11 +36,15 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
                 content = 'title: Your title here';
             }
 
-            //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
-            $(".rmd-editor:lt(2)").each(function() {
-                console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
-                $(this).remove();
-            });
+            //Check whether there is error output and repair automatically!
+            if($(".rmd-editor").length >= 2) {
+
+                //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
+                $(".rmd-editor:lt(2)").each(function() {
+                    console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
+                    $(this).remove();
+                });
+            }
 
 
             editor = new Editor({
