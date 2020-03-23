@@ -1,9 +1,9 @@
 // Start the main app logic.
-requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText,MarkdowConvertor) {
+requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
     var $_GET = (function () {
         var url = window.document.location.href.toString();
         var u = url.split("?");
-        if (typeof(u[1]) === "string") {
+        if (typeof (u[1]) === "string") {
             u = u[1].split("&");
             var get = {};
             for (var i in u) {
@@ -15,7 +15,7 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
             return {};
         }
     })();
-    
+
 
     $(document).ready(
         function () {
@@ -37,12 +37,12 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
             }
 
             //Check whether there is error output and repair automatically!
-            if($(".rmd-editor").length >= 2) {
+            if ($(".rmd-editor").length >= 2) {
 
                 $indexsave = $(".rmd-editor").length - 1;
 
                 //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
-                $(".rmd-editor:lt(" + $indexsave + ")").each(function() {
+                $(".rmd-editor:lt(" + $indexsave + ")").each(function () {
                     console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
                     $(this).remove();
                 });
@@ -99,7 +99,7 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText','MarkdowCo
                     }
                 }).done(function (response) {
                     console.log(response);
-					post_id = response.id;
+                    post_id = response.id;
                     alert('Posted passage');
                 });
 
