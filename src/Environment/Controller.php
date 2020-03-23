@@ -17,7 +17,8 @@ class Controller {
 			'api_root'        => esc_url_raw( rest_url() ),
 			'nonce'           => wp_create_nonce( 'wp_rest' ),
 			'js_root'         => WPReliableMD_URL . '/js/',
-			'js_dep_lib_root' => 'https://cdn.jsdelivr.net/npm/',
+			//'js_dep_lib_root' => 'https://cdn.jsdelivr.net/npm/',
+			'js_dep_lib_root' => WPReliableMD_URL. '/node_modules/',
 			'config' => $ReliableMDAdminController->WPReliableMD_Config_Api()
 		);
 
@@ -38,7 +39,8 @@ class Controller {
 		wp_register_style( 'normalize', WPReliableMD_URL . '/css/normalize.css', array(), WPReliableMD_VER, false );
 		wp_register_style( 'codemirror', $js_dep_lib_root.'/codemirror/lib/codemirror.css', array( 'normalize' ), WPReliableMD_VER, false );
 		wp_register_style( 'github', $js_dep_lib_root.'/highlightjs/styles/github.css', array( 'codemirror' ), WPReliableMD_VER, false );
-		wp_register_style( 'tui-editor', WPReliableMD_URL . '/css/tui-editor/tui-editor.css', array( 'github' ), WPReliableMD_VER, false );
+		//wp_register_style( 'tui-editor', WPReliableMD_URL . '/css/tui-editor/tui-editor.css', array( 'github' ), WPReliableMD_VER, false );
+		wp_register_style( 'tui-editor', $js_dep_lib_root . '@toast-ui/editor/dist/toastui-editor.css', array( 'github' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-editor-contents', WPReliableMD_URL . '/css/tui-editor/tui-editor-contents.css', array( 'tui-editor' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-color-picker', WPReliableMD_URL . '/css/tui-color-picker/tui-color-picker.css', array( 'tui-editor-contents' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-chart', WPReliableMD_URL . '/css/tui-chart/tui-chart.css', array( 'tui-color-picker' ), WPReliableMD_VER, false );

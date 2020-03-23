@@ -1,5 +1,6 @@
 // Start the main app logic.
-requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
+//requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
+requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport) {
     var $_GET = (function () {
         var url = window.document.location.href.toString();
         var u = url.split("?");
@@ -29,7 +30,7 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowC
                     console.log(apost);
                     var raw_md = apost.markdown ? apost.content.markdown : htmlToText(apost.content.rendered);
                     content = ['title: ' + apost.title.rendered, raw_md].join('\n');
-                    editor.setValue(content);
+                    editor.setMarkdown(content);
                 });
             }
             else {
@@ -48,6 +49,13 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowC
                 });
             }
 
+            const chartOptions = {
+                minWidth: 100,
+                maxWidth: 600,
+                minHeight: 100,
+                maxHeight: 300
+            };
+
 
             editor = new Editor({
                 el: document.querySelector('#editSection'),
@@ -56,26 +64,21 @@ requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowC
                 initialEditType: 'markdown',
                 useCommandShortcut: true,
                 initialValue: content,
-                exts: [
-                    {
-                        name: 'chart',
-                        minWidth: 100,
-                        maxWidth: 600,
-                        minHeight: 100,
-                        maxHeight: 300
-                    },
-                    'scrollSync',
-                    'colorSyntax',
-                    'uml',
-                    'mark',
-                    'table',
-                    'mathsupport'
+                plugins: [
+                    [
+                        chart,
+                        chartOptions
+                    ],
+                    codeSyntaxHighlight,
+                    TableMergedCell,
+                    Uml,
+                    mathsupport
                 ],
                 customConvertor: MarkdowConvertor
             });
 
             var post = function () {
-                var raw = editor.getValue();
+                var raw = editor.getMarkdown();
                 var title = 'no title';
                 if (raw.indexOf('title:') === 0) {
                     raw.replace(/^title: *(.+)/, function (s, value) {

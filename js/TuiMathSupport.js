@@ -7,7 +7,7 @@
         factory(root['markdown-it-mathsupport'], root['katex']);
     }
 })(this, function (mdi_mathsupport, katex) {
-    function extracted(EditorOrViewer) {
+    function extracted(EditorOrViewer, isEditor) {
         var math_render = katex.renderToString;
         var option = {
             renderer: function (text, type) {
@@ -21,13 +21,18 @@
             }
         };
 
+        console.log(EditorOrViewer);
 
-        EditorOrViewer.defineExtension('mathsupport', function () {
+        /*if (!isEditor) {
             EditorOrViewer.markdownitHighlight
                 .use(mdi_mathsupport(option));
-            EditorOrViewer.codeBlockManager.setReplacer('latex', function (ltx) {
-                return option.renderer(ltx, 'DisplayMath');
-            });
+        }*/
+
+        EditorOrViewer.codeBlockManager.setReplacer('latex', function (ltx) {
+            return option.renderer(ltx, 'DisplayMath');
+        });
+        EditorOrViewer.codeBlockManager.setReplacer('inlinelatex', function (ltx) {
+            return option.renderer(ltx, 'InlineMath');
         });
     }
 
