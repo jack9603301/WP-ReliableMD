@@ -2,7 +2,7 @@
 name: Question
 about: Create a question about grid
 title: ''
-labels: Question
+labels: question
 assignees: ''
 ---
 
