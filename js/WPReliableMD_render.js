@@ -1,4 +1,4 @@
-define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml'], function ($, Viewer, mathsupport, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml) {
+define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'tui-mathsupport'], function ($, Viewer, mathsupport, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, viewerMathsupport) {
     var hash = function (text) {
         // if you wanna enable cache, the hash function must be the same as it in WP-ReliableMDFrontend.js
         var h = 0;
@@ -80,6 +80,12 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
                     mathsupport
                 ],
             });
+            console.log(viewer);
+
+            var markdownblock = document.querySelector('.markdown-block')
+
+            markdownblock = viewerMathsupport.viewerRender(markdownblock);
+
             $('[data-te-task]').removeAttr('data-te-task');
         });
     };

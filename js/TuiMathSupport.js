@@ -1,12 +1,12 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['markdown-it-mathsupport', 'katex'], factory);
+        define(['markdown-it-mathsupport', 'katex', 'katex-autorender'], factory);
     } else if (typeof exports === 'object') {
-        factory([require('markdown-it-mathsupport'), require('katex')]);
+        factory([require('markdown-it-mathsupport'), require('katex'), require('katex-autorender')]);
     } else {
-        factory(root['markdown-it-mathsupport'], root['katex']);
+        factory(root['markdown-it-mathsupport'], root['katex'], root['katex-autorender']);
     }
-})(this, function (mdi_mathsupport, katex) {
+})(this, function (mdi_mathsupport, katex, katex_autorender) {
     function extracted(EditorOrViewer, isEditor) {
         var math_render = katex.renderToString;
         var option = {
@@ -21,7 +21,11 @@
             }
         };
 
-        console.log(EditorOrViewer);
+        /*EditorOrViewer.preview.eventManager.listen("previewRenderAfter", function (html) {
+            console.log((html));
+            mdi_mathsupport(option);
+            return html;
+        });*/
 
         /*if (!isEditor) {
             EditorOrViewer.markdownitHighlight
@@ -34,6 +38,42 @@
         EditorOrViewer.codeBlockManager.setReplacer('inlinelatex', function (ltx) {
             return option.renderer(ltx, 'InlineMath');
         });
+    }
+
+    extracted.previewRender = function (html) {
+        var option = {
+            delimiters: [
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        };
+
+
+        //var mathrender = mdi_mathsupport(option);
+        console.log(html);
+        //html.el.innerHTML = mathrender(html.el.innerHTML);
+        //mathrender(html);
+        katex_autorender(html.el, option);
+        //html.el.innerHTML = math_render(html.el.innerHTML, option);
+        return html;
+    }
+
+    extracted.viewerRender = function (el) {
+        var option = {
+            delimiters: [
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        };
+
+
+        //var mathrender = mdi_mathsupport(option);
+        console.log(el);
+        //html.el.innerHTML = mathrender(html.el.innerHTML);
+        //mathrender(html);
+        katex_autorender(el, option);
+        //html.el.innerHTML = math_render(html.el.innerHTML, option);
+        return el;
     }
 
     return extracted;

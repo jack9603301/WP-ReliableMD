@@ -41,6 +41,7 @@ function configure_requirejs() {
             'editor-mathsupport': lib_js + 'TuiEditorMathSupport',
             'tui-mathsupport': lib_js + 'TuiMathSupport',
             'katex': lib_dep + 'katex/dist/katex',
+            'katex-autorender': lib_dep + 'katex/dist/contrib/auto-render.min',
             'eve': lib_dep + 'eve/eve',
             'raphael-core': lib_js + 'raphael/raphael.core',
             'raphael-svg': lib_js + 'raphael/raphael.svg',
@@ -56,7 +57,7 @@ function configure_requirejs() {
                 exports: 'Raphael'
             }
         },
-        waitSeconds: 30
+        waitSeconds: 60
     });
 }
 
