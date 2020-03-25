@@ -72,8 +72,10 @@ class Controller {
 			</div>
 			<div id="code-html">
 				 <div id="editSection"></div>
-				<?php post_submit_meta_box($post,array()); ?>
-				<!--?php post_format_meta_box($post,array());?>-->
+				 <div id="right-metabox" class="metabox">
+					<?php post_submit_meta_box($post,array()); ?>
+					<?php post_format_meta_box($post,array());?>
+				</div>
 			</div>
 		</div>
 		<?php

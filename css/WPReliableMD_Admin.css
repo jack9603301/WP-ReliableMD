@@ -16,18 +16,27 @@
 	width: 100%;
 }
 
-.submitbox {
+#code-html {
+	position: relative;
+	width: 100%;
+}
+
+#right-metabox {
 	position: absolute;
 	left: 80%;
 	width: 20%;
+	top: 0px;
+}
+
+.submitbox {
+	position: relative;
+	width: 100%;
 	top:0px;
 }
 
 #post-formats-select {
-	position: absolute;
-	left: 80%;
-	width: 20%;
-	top: 200px;
+	position: relative;
+	width: 100%;
 }
 
 #editor-title {
@@ -35,10 +44,7 @@
 	width: 80%;
 }
 
-#code-html {
-	position: relative;
-	width: 100%;
-}
+
 
 
 #editSection {
