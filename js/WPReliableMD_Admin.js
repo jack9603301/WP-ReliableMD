@@ -220,7 +220,7 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                 jQuery("#hidden_hh").val(hh);
                 jQuery("#hidden_mn").val(mn);
                 if ((aa == cut_aa) && (mm == cut_mm) && (jj == cut_jj) && (hh == cut_hh) && (mn == cut_mn)) {
-                    jQuery("#timestamp b").text("当前");
+                    jQuery("#timestamp b").text("立即");
                 } else {
                     jQuery("#timestamp b").text(aa + "年" + mm + "月" + jj + "日" + hh + "时" + mm + "分");
                 }
