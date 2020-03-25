@@ -47,7 +47,7 @@ class Controller {
 		return $classes;
 	}
 
-	public function WPReliableMD_Page_Init() {
+	public function WPReliableMD_Page_Init($post) {
 		global $post_type_object;
 		$this->WPReliableMD_Enqueue_Scripts();
 		$this->WPReliableMD_Enqueue_Style();
@@ -57,14 +57,12 @@ class Controller {
 		<div class="rmd-editor">
             <div id="editor-title" style="margin-top: 1em;">
                 <h1>Input your text here</h1>
-            </div>
-
-            <div class="code-html">
-                <div id="editSection"></div>
-                <div style="text-align: right">
-                    <button id="submit">Submit</button>
-                </div>
-            </div>
+			</div>
+			<div id="code-html">
+				 <div id="editSection"></div>
+				<?php post_submit_meta_box($post,array()); ?>
+				<!--?php post_format_meta_box($post,array());?>-->
+			</div>
 		</div>
 		<?php
 	}
@@ -76,7 +74,7 @@ class Controller {
 			return $return;
 		}
 
-		add_filter( 'screen_options_show_screen', '__return_false' );
+		add_filter( 'screen_options_show_screen', '__return_true' );
 
 		$post_type_object = get_post_type_object( $post_type );
 		if ( ! empty( $post_type_object ) ) {
@@ -89,7 +87,9 @@ class Controller {
 
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 
-		$this->WPReliableMD_Page_Init();   //初始化页面
+		register_and_do_post_meta_boxes($post);
+
+		$this->WPReliableMD_Page_Init($post);   //初始化页面
 
 		$return = true;
 

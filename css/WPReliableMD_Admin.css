@@ -6,20 +6,45 @@
 	display: none;
 }
 
-#wpbody-content {
-    position: fixed;
-    height: 90%;
-    width: 85%;
-}
-.code-html {
-	position: absolute;
-	bottom: 0;
-	top: 0;
+.rmd-editor {
+	position: relative;
 	width: 100%;
 }
+
+#wpbody-content {
+    position: absolute;
+	width: 100%;
+}
+
+.submitbox {
+	position: absolute;
+	left: 80%;
+	width: 20%;
+	top:0px;
+}
+
+#post-formats-select {
+	position: absolute;
+	left: 80%;
+	width: 20%;
+	top: 200px;
+}
+
+#editor-title {
+	position: relative;
+	width: 80%;
+}
+
+#code-html {
+	position: relative;
+	width: 100%;
+}
+
+
 #editSection {
 	box-sizing: border-box;
-	height: 90% !important;
+	height: 600px;
 	/* to show submit buttom*/
-	width: 100%;
+	width: 80%;
+	top: 0px;
 }
