@@ -35,6 +35,30 @@ class Controller {
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
 		wp_enqueue_script( 'ReliableMD' );
+
+
+		$CallbackCustomScripts = array();
+		$CallbackCustomScriptsVer = array();
+
+		/*
+		 * filter  : registerJavascriptsCallback($scripts,$vers)
+		 * comment : Register the files that need to be loaded for JavaScript callbacks that have a callback manager dependency.
+		 * params  :
+		 *   - $scripts : Return the parameter. You need to load the list of JavaScript files that can access the callbackmanager object.
+		 *   - $vers: Return the version number corresponding to the script file registration list returned by the first parameter. It must correspond!
+		 */
+
+		 $CallbackCustomScripts = apply_filters("registerJavascriptsCallback",$CallbackCustomScripts,$CallbackCustomScriptsVer);
+
+		 if(is_array($CallbackCustomScripts)) {
+			 foreach($CallbackCustomScripts as $key => $value) {
+				 if(array_key_exists($key,$CallbackCustomScriptsVer)) {
+					wp_enqueue_script($key, $value, array( 'CallBackManager' ), $CallbackCustomScriptsVer[$key], false );
+				 } else {
+					 wp_enqueue_script($key, $value, array( 'CallBackManager' ), NULL, false );
+				 }
+			 }
+		 }
 	}
 
 	public function WPReliableMD_Enqueue_Style() {
