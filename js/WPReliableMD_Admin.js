@@ -23,7 +23,7 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
         function () {
             var editor;
             var content;
-            var post_id = '';
+            var post_id = ReliableMD.post_id;
             if (typeof $_GET['post'] !== 'undefined') {
                 post_id = $_GET['post'];
                 content = '';
@@ -178,6 +178,12 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
 
             jQuery(".cancel-timestamp").click(function () {
                 jQuery("#timestampdiv").attr("class", "hide-if-js");
+            });
+
+            jQuery("#save-post").click(function () {
+                post({
+                    status: 'draft'
+                });
             });
 
             jQuery("#post-preview").click(function () {

@@ -19,7 +19,19 @@ class Controller {
 		$this->config_filename = WPReliableMD_PATH.'/config.json';
 	}
 
-	public function WPReliableMD_Enqueue_Scripts() {
+	public function WPReliableMD_Enqueue_Scripts($post_id) {
+		//定义脚本本地化数据
+		$ReliableMDSetting = array(
+			'api_root'        => esc_url_raw( rest_url() ),
+			'nonce'           => wp_create_nonce( 'wp_rest' ),
+			'js_root'         => WPReliableMD_URL . '/js/',
+			//'js_dep_lib_root' => 'https://cdn.jsdelivr.net/npm/',
+			'js_dep_lib_root' => WPReliableMD_URL. '/node_modules/',
+			'config' => $this->WPReliableMD_Config_Api(),
+			"post_id" => $post_id
+		);
+		wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
+		wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
 		wp_enqueue_script( 'ReliableMD' );
@@ -49,7 +61,7 @@ class Controller {
 
 	public function WPReliableMD_Page_Init($post) {
 		global $post_type_object;
-		$this->WPReliableMD_Enqueue_Scripts();
+		$this->WPReliableMD_Enqueue_Scripts($post->ID);
 		$this->WPReliableMD_Enqueue_Style();
 
 		?>
