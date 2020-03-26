@@ -1,6 +1,6 @@
 var CallBackManager = function (key) {
     var instance = {};
-    var instances = new Object();
+    var instances = CallBackManager.instance;
     instance.callbackList = new Array();
     instance.registerCallback = function (callback) {
         var save = true;
@@ -19,14 +19,14 @@ var CallBackManager = function (key) {
 
     instance.unregisterCallback = function (callback) {
         var unregIndex = this.callbackList.indexOf(callback);
-        var unreg = false;
+        var unreg = true;
 
         if (unregIndex == -1) {
             unreg = false;
         }
 
         if (unreg) {
-            this.callbackList = this.callbackList.splice(unregIndex, 1);
+            this.callbackList.splice(unregIndex, 1);
             return true;
         } else {
             return false;
@@ -41,7 +41,7 @@ var CallBackManager = function (key) {
             }
         });
 
-        if (tmpdata == undefined) {
+        if (typeof tmpdata !== "object") {
             return false;
         } else {
             return tmpdata;
@@ -60,3 +60,5 @@ var CallBackManager = function (key) {
         return false;
     }
 }
+
+CallBackManager.instance = new Object();
