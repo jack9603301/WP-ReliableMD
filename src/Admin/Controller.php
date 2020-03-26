@@ -34,7 +34,7 @@ class Controller {
 		wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
-		wp_enqueue_script( 'ReliableMD' );
+		wp_enqueue_script('CallBackManager');
 
 
 		$CallbackCustomScripts = array();
@@ -59,6 +59,8 @@ class Controller {
 				 }
 			 }
 		 }
+
+		 wp_enqueue_script( 'ReliableMD' );
 	}
 
 	public function WPReliableMD_Enqueue_Style() {

@@ -2,7 +2,8 @@
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
 requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, mathsupport, viewerMathsupport) {
-    var AricaleCallBackManager = CallBackManager("AricaleCallBackManager");
+    var AricaleMetaCallBackManager = CallBackManager("AricaleMetaCallBackManager");
+    var AricaleInitCallBackManager = CallBackManager("AricaleInitCallBackManager");
     var $_GET = (function () {
         var url = window.document.location.href.toString();
         var u = url.split("?");
@@ -18,6 +19,10 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
             return {};
         }
     })();
+
+    var initsatus = {
+        result: true
+    };
 
 
     $(document).ready(
@@ -84,16 +89,91 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
 
             editor.preview.eventManager.listen("previewRenderAfter", viewerMathsupport.previewRender);
 
+            if (typeof AricaleInitCallBackManager == "object") {
 
-            if (typeof AricaleCallBackManager == "object") {
-                AricaleCallBackManager.registerCallback(function (data, extargs) {
+                //register
+
+                AricaleInitCallBackManager.registerCallback(function (data, extargs) {
                     var value = jQuery("#hidden_post_status").val();
-                    data.status = value;
+                    var text = jQuery("#post_status option[value=" + value + "]").text();
+                    jQuery("#post-status-display").text(text);
+                    data.result = true;
+                    data.post_status_errno = 0;
+                    return data;
+                });
+
+                AricaleInitCallBackManager.registerCallback(function (data, extargs) {
+                    var value = jQuery("#hidden-post-visibility").val();
+                    var passwd = jQuery("#hidden-post-password").val();
+                    if (value == "private") {
+                        if (jQuery("#sticky").is(':checked')) {
+                            text = "私有，只有自己能看到，置顶";
+                        } else {
+                            text = "私有，只有自己能看到";
+                        }
+                    } else if (value == "password") {
+                        if (jQuery("#sticky").is(':checked')) {
+                            text = "加密的文章，置顶";
+                        } else {
+                            text = "加密的文章";
+                        }
+                    } else if (value == "public") {
+                        if (jQuery("#sticky").is(':checked')) {
+                            text = "公开，置顶";
+                        } else {
+                            text = "公开";
+                        }
+                    }
+                    jQuery("#post-visibility-display").text(text);
+                    data.result = true;
+                    data.post_visibility_errno = 0;
+                    return data;
+                });
+
+                initsatus = AricaleInitCallBackManager.call(initsatus, {
+                    InitMode: "Admin"
+                });
+
+                console.log(initsatus);
+
+                if (!initsatus.result) {
+                    console.error("Editor state initialization process execution failed,InitMode: \n" + initsatus);
+                }
+            }
+
+
+            if (typeof AricaleMetaCallBackManager == "object") {
+                AricaleMetaCallBackManager.registerCallback(function (data, extargs) {
+                    var value = jQuery("#hidden_post_status").val();
+                    if (("draft_button" in extargs)) {
+                        if (extargs["draft_button"]) {
+                            data.status = value;
+                        } else {
+                            data.status = "publish";
+                        }
+                    } else {
+                        data.status = "publish";
+                    }
+
+                    return data;
+                });
+                AricaleMetaCallBackManager.registerCallback(function (data, extargs) {
+                    var value = jQuery("#hidden-post-visibility").val();
+                    var passwd = jQuery("#hidden-post-password").val();
+                    var sticky = jQuery("#sticky").is(':checked');
+                    data.sticky = sticky;
+                    if (value == "password") {
+                        data.password = passwd;
+                    } else if (value == "private") {
+                        if (!("draft_button" in extargs)) {
+                            data.status = value;
+                        }
+                    }
                     return data;
                 });
             }
 
-            var post = function (status = false) {
+            var post = function (draft_button = true) {
                 var raw = editor.getMarkdown();
                 var title = 'no title';
                 if (raw.indexOf('title:') === 0) {
@@ -111,12 +191,10 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     'markdown': true
                 };
 
-                if (typeof AricaleCallBackManager == "object") {
-                    data = AricaleCallBackManager.call(data);
-                }
-
-                if (data !== false && status !== false) {
-                    data.status = status;
+                if (typeof AricaleMetaCallBackManager == "object") {
+                    data = AricaleMetaCallBackManager.call(data, {
+                        draft_button: draft_button
+                    });
                 }
 
                 if (data !== false) {
@@ -141,7 +219,7 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
 
             };
             jQuery('#publish').click(function () {
-                post("publish");
+                post(false);
             });
 
             jQuery(".edit-post-status").click(function () {
@@ -237,13 +315,11 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
             });
 
             jQuery("#save-post").click(function () {
-                post({
-                    status: 'draft'
-                });
+                post(true);
             });
 
             jQuery("#post-preview").click(function () {
-                post();
+                post(true);
             });
 
         }
