@@ -12,23 +12,23 @@ gulp.task('build-MarkdownConvertor',function(done) {
 gulp.task('build',gulp.parallel('build-MarkdownConvertor'));
 
 gulp.task('copy-js', gulp.series('build',function(done) {
-	gulp.src('bower_components/codemirror/lib/**.js')
+	gulp.src('node_modules/codemirror/lib/**.js')
 	    .pipe(gulp.dest('Assets/js/codemirror/'));
-	gulp.src('bower_components/eve/**.js')
+	gulp.src('node_modules/eve/**.js')
 	    .pipe(gulp.dest('Assets/js/eve/'));
-	gulp.src('bower_components/highlightjs/**.js')
+	gulp.src('node_modules/highlightjs/**.js')
 	    .pipe(gulp.dest('Assets/js/highlightjs/'));
-	gulp.src('bower_components/jquery/dist/**.js')
+	gulp.src('node_modules/jquery/dist/**.js')
 	    .pipe(gulp.dest('Assets/js/jquery/'));
-	gulp.src('bower_components/katex/dist/**.js')
+	gulp.src('node_modules/katex/dist/**.js')
 	    .pipe(gulp.dest('Assets/js/katex/'));
-	gulp.src('bower_components/markdown-it/dist/**.js')
+	gulp.src('node_modules/markdown-it/dist/**.js')
 	    .pipe(gulp.dest('Assets/js/markdown-it/'));
-	gulp.src('bower_components/raphael/**.js')
+	gulp.src('node_modules/raphael/**.js')
 	    .pipe(gulp.dest('Assets/js/raphael/'));
-	gulp.src('bower_components/squire-rte/source/**.js')
+	gulp.src('node_modules/squire-rte/source/**.js')
 	    .pipe(gulp.dest('Assets/js/squire-rte/'));
-	gulp.src('bower_components/to-mark/dist/**.js')
+	gulp.src('node_modules/to-mark/dist/**.js')
 	    .pipe(gulp.dest('Assets/js/to-mark/'));
 	gulp.src('js/src/MarkdownConvertor/dist/**.js')
 	    .pipe(gulp.dest('js/'));
@@ -36,29 +36,29 @@ gulp.task('copy-js', gulp.series('build',function(done) {
 }));
 
 gulp.task('Copy-MathJax',gulp.series('build',function(done) {
-	gulp.src('bower_components/MathJax/unpacked/**')
+	gulp.src('node_modules/MathJax/unpacked/**')
 	    .pipe(gulp.dest('Assets/MathJax/'));
 	done();
 }));
 
 gulp.task('copy-css', gulp.series('build',function(done) {
-	gulp.src('bower_components/codemirror/lib/**.css')
+	gulp.src('node_modules/codemirror/lib/**.css')
 	    .pipe(gulp.dest('Assets/css/codemirror/'));
-	gulp.src('bower_components/eve/**.css')
+	gulp.src('node_modules/eve/**.css')
 	    .pipe(gulp.dest('Assets/css/eve/'));
-	gulp.src('bower_components/highlightjs/**.css')
+	gulp.src('node_modules/highlightjs/**.css')
 	    .pipe(gulp.dest('Assets/css/highlightjs/'));
-	gulp.src('bower_components/jquery/dist/**.css')
+	gulp.src('node_modules/jquery/dist/**.css')
 	    .pipe(gulp.dest('Assets/css/jquery/'));
-	gulp.src('bower_components/katex/dist/**.css')
+	gulp.src('node_modules/katex/dist/**.css')
 	    .pipe(gulp.dest('Assets/css/katex/'));
-	gulp.src('bower_components/markdown-it/dist/**.css')
+	gulp.src('node_modules/markdown-it/dist/**.css')
 	    .pipe(gulp.dest('Assets/css/markdown-it/'));
-	gulp.src('bower_components/raphael/**.css')
+	gulp.src('node_modules/raphael/**.css')
 	    .pipe(gulp.dest('Assets/css/raphael/'));
-	gulp.src('bower_components/squire-rte/source/**.css')
+	gulp.src('node_modules/squire-rte/source/**.css')
 	    .pipe(gulp.dest('Assets/css/squire-rte/'));
-	gulp.src('bower_components/to-mark/dist/**.css')
+	gulp.src('node_modules/to-mark/dist/**.css')
 	    .pipe(gulp.dest('Assets/css/to-mark/'));
 	done();
 }));
