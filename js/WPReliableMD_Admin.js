@@ -138,6 +138,14 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
 
                 if (!initsatus.result) {
                     console.error("Editor state initialization process execution failed,InitMode: \n" + initsatus);
+                    var exception = {
+                        type: "AdminEditorSatusInit",
+                        initsatus: initsatus,
+                        errorstr: "Editor state initialization process execution failed,InitMode: "
+                    }
+
+                    var ExceptionCallBackManager = CallBackManager("ExceptionCallBackManager");
+                    ExceptionCallBackManager.call(exception);
                 }
             }
 
