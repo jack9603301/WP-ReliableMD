@@ -2,7 +2,7 @@
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
 requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, mathsupport, viewerMathsupport) {
-    var AricaleCallBackManager = new CallBackManager();
+    var AricaleCallBackManager = CallBackManager("AricaleCallBackManager");
     var $_GET = (function () {
         var url = window.document.location.href.toString();
         var u = url.split("?");
@@ -84,11 +84,14 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
 
             editor.preview.eventManager.listen("previewRenderAfter", viewerMathsupport.previewRender);
 
-            AricaleCallBackManager.registerCallback(function (data, extargs) {
-                var value = jQuery("#hidden_post_status").val();
-                data.status = value;
-                return data;
-            });
+
+            if (typeof AricaleCallBackManager == "object") {
+                AricaleCallBackManager.registerCallback(function (data, extargs) {
+                    var value = jQuery("#hidden_post_status").val();
+                    data.status = value;
+                    return data;
+                });
+            }
 
             var post = function (status = false) {
                 var raw = editor.getMarkdown();
@@ -108,7 +111,9 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     'markdown': true
                 };
 
-                data = AricaleCallBackManager.call(data);
+                if (typeof AricaleCallBackManager == "object") {
+                    data = AricaleCallBackManager.call(data);
+                }
 
                 if (data !== false && status !== false) {
                     data.status = status;
