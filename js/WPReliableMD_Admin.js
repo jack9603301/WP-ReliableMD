@@ -24,6 +24,11 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
         result: true
     };
 
+    //Init
+    var init = function () {
+
+    }
+
 
     $(document).ready(
         function () {
@@ -43,51 +48,6 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                 content = 'title: Your title here';
             }
 
-            //Check whether there is error output and repair automatically!
-            if ($(".rmd-editor").length >= 2) {
-
-                $indexsave = $(".rmd-editor").length - 1;
-
-                //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
-                $(".rmd-editor:lt(" + $indexsave + ")").each(function () {
-                    console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
-                    $(this).remove();
-                });
-            }
-
-            const chartOptions = {
-                minWidth: 100,
-                maxWidth: 600,
-                minHeight: 100,
-                maxHeight: 300
-            };
-
-
-            editor = new Editor({
-                el: document.querySelector('#editSection'),
-                previewStyle: 'vertical',
-                height: '600px',
-                initialEditType: 'markdown',
-                useCommandShortcut: true,
-                initialValue: content,
-                plugins: [
-                    [
-                        chart,
-                        chartOptions
-                    ],
-                    codeSyntaxHighlight,
-                    TableMergedCell,
-                    Uml,
-                    mathsupport
-                ],
-                //customConvertor: MarkdowConvertor
-            });
-
-            console.log(editor.preview.eventManager);
-
-            //editor.preview.eventManager.listen('convertorAfterMarkdownToHtmlConverted', viewerMathsupport.viewerRender)
-
-            editor.preview.eventManager.listen("previewRenderAfter", viewerMathsupport.previewRender);
 
             if (typeof AricaleInitCallBackManager == "object") {
 
@@ -149,7 +109,6 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                 }
             }
 
-
             if (typeof AricaleMetaCallBackManager == "object") {
                 AricaleMetaCallBackManager.registerCallback(function (data, extargs) {
                     var value = jQuery("#hidden_post_status").val();
@@ -180,7 +139,6 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     return data;
                 });
             }
-
             var post = function (draft_button = true) {
                 var raw = editor.getMarkdown();
                 var title = 'no title';
@@ -225,7 +183,9 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     return false;
                 }
 
-            };
+            }
+
+
             jQuery('#publish').click(function () {
                 post(false);
             });
@@ -329,6 +289,52 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
             jQuery("#post-preview").click(function () {
                 post(true);
             });
+
+            //Check whether there is error output and repair automatically!
+            if ($(".rmd-editor").length >= 2) {
+
+                $indexsave = $(".rmd-editor").length - 1;
+
+                //It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!
+                $(".rmd-editor:lt(" + $indexsave + ")").each(function () {
+                    console.warn("It is found that the initialization of the plug-in admin controller has illegal execution. It will automatically repair and delete redundant error elements!")
+                    $(this).remove();
+                });
+            }
+
+            const chartOptions = {
+                minWidth: 100,
+                maxWidth: 600,
+                minHeight: 100,
+                maxHeight: 300
+            };
+
+
+            editor = new Editor({
+                el: document.querySelector('#editSection'),
+                previewStyle: 'vertical',
+                height: '600px',
+                initialEditType: 'markdown',
+                useCommandShortcut: true,
+                initialValue: content,
+                plugins: [
+                    [
+                        chart,
+                        chartOptions
+                    ],
+                    codeSyntaxHighlight,
+                    TableMergedCell,
+                    Uml,
+                    mathsupport
+                ],
+                //customConvertor: MarkdowConvertor
+            });
+
+            console.log(editor.preview.eventManager);
+
+            //editor.preview.eventManager.listen('convertorAfterMarkdownToHtmlConverted', viewerMathsupport.viewerRender)
+
+            editor.preview.eventManager.listen("previewRenderAfter", viewerMathsupport.previewRender);
 
         }
     );
