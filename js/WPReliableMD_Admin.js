@@ -187,7 +187,6 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     date.setHours(hh);
                     date.setMinutes(mn);
                     date.setSeconds(cut_ss);
-                    datestr = date.getFullYear();
                 }
                 datestr = date.format("YYYY-MM-DDTHH:mm:SS");
                 data.date = datestr;
