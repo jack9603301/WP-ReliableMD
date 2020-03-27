@@ -2,3 +2,5 @@
 .*/
 vendor/*
 composer.local
+Assets/*
+node_modules/*
