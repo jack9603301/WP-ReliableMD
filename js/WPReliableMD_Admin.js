@@ -40,12 +40,12 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                 $.get(ReliableMD.api_root + 'wp/v2/posts/' + post_id, function (apost) {
                     console.log(apost);
                     var raw_md = apost.markdown ? apost.content.markdown : htmlToText(apost.content.rendered);
-                    content = ['title: ' + apost.title.rendered, raw_md].join('\n');
+                    content = ['# ' + apost.title.rendered, raw_md].join('\n');
                     editor.setMarkdown(content);
                 });
             }
             else {
-                content = 'title: Your title here';
+                content = '# Your title here';
             }
 
 
@@ -206,8 +206,8 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
             var post = function (draft_button = true) {
                 var raw = editor.getMarkdown();
                 var title = 'no title';
-                if (raw.indexOf('title:') === 0) {
-                    raw.replace(/^title: *(.+)/, function (s, value) {
+                if (raw.indexOf('#') === 0) {
+                    raw.replace(/^# *(.+)/, function (s, value) {
                         title = value;
                     });
                     raw = raw.split('\n').slice(1).join('\n');
