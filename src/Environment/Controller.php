@@ -26,7 +26,8 @@ class Controller {
 
 		wp_register_script( 'require', WPReliableMD_URL . '/js/require.js', array(), WPReliableMD_VER, false );
 		wp_register_script( 'require-paths', WPReliableMD_URL . '/js/require_paths.js', array( 'require' ), WPReliableMD_VER, false );
-		wp_register_script( 'CallBackManager', WPReliableMD_URL . '/js/CallBackManager.js', array( 'require-paths' ), WPReliableMD_VER, false );
+		wp_register_script( 'DateExt', WPReliableMD_URL . '/js/DateExt.js', array( 'require-paths' ), WPReliableMD_VER, false );
+		wp_register_script( 'CallBackManager', WPReliableMD_URL . '/js/CallBackManager.js', array( 'DateExt' ), WPReliableMD_VER, false );
 		wp_register_script( 'ReliableMD', WPReliableMD_URL . '/js/WPReliableMD_Admin.js', array( 'CallBackManager' ), WPReliableMD_VER, false );
 		wp_register_script( 'WPReliableMDFrontend', WPReliableMD_URL . '/js/WPReliableMDFrontend.js', array( 'require-paths' ), WPReliableMD_VER, false );
 		//wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );

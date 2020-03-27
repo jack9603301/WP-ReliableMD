@@ -57,7 +57,9 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     var value = jQuery("#hidden_post_status").val();
                     var text = jQuery("#post_status option[value=" + value + "]").text();
                     jQuery("#post-status-display").text(text);
-                    data.result = true;
+                    if (data.result) {
+                        data.result = true;
+                    }
                     data.post_status_errno = 0;
                     return data;
                 });
@@ -85,10 +87,35 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                         }
                     }
                     jQuery("#post-visibility-display").text(text);
-                    data.result = true;
+                    if (data.result) {
+                        data.result = true;
+                    }
                     data.post_visibility_errno = 0;
                     return data;
                 });
+
+                AricaleInitCallBackManager.registerCallback(function (data, extargs) {
+                    var mm = jQuery("#hidden_mm").val();
+                    var aa = jQuery("#hidden_aa").val();
+                    var jj = jQuery("#hidden_jj").val();
+                    var hh = jQuery("#hidden_hh").val();
+                    var mn = jQuery("#hidden_mn").val();
+                    var cut_mm = jQuery("#cur_mm").val();
+                    var cut_aa = jQuery("#cur_aa").val();
+                    var cut_jj = jQuery("#cur_jj").val();
+                    var cut_hh = jQuery("#cur_hh").val();
+                    var cut_mn = jQuery("#cur_mn").val();
+                    if ((aa == cut_aa) && (mm == cut_mm) && (jj == cut_jj) && (hh == cut_hh) && (mn == cut_mn)) {
+                        jQuery("#timestamp b").text("立即");
+                    } else {
+                        jQuery("#timestamp b").text(aa + "年" + mm + "月" + jj + "日" + hh + "时" + mm + "分");
+                    }
+                    if (data.result) {
+                        data.result = true;
+                    }
+                    data.timestamp_errno = 0;
+                    return data;
+                })
 
                 initsatus = AricaleInitCallBackManager.call(initsatus, {
                     InitMode: "Admin"
@@ -139,6 +166,44 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
                     return data;
                 });
             }
+            AricaleMetaCallBackManager.registerCallback(function (data, extargs) {
+                var mm = jQuery("#hidden_mm").val();
+                var aa = jQuery("#hidden_aa").val();
+                var jj = jQuery("#hidden_jj").val();
+                var hh = jQuery("#hidden_hh").val();
+                var mn = jQuery("#hidden_mn").val();
+                var cut_mm = jQuery("#cur_mm").val();
+                var cut_aa = jQuery("#cur_aa").val();
+                var cut_jj = jQuery("#cur_jj").val();
+                var cut_hh = jQuery("#cur_hh").val();
+                var cut_mn = jQuery("#cur_mn").val();
+                var cut_ss = jQuery("#ss").val();
+                var datestr;
+                var date = new Date();
+                if ((aa == cut_aa) && (mm == cut_mm) && (jj == cut_jj) && (hh == cut_hh) && (mn == cut_mn)) {
+                    datestr = new String(date.getFullYear());
+                } else {
+                    date.setFullYear(aa, mm, jj);
+                    date.setHours(hh);
+                    date.setMinutes(mn);
+                    date.setSeconds(cut_ss);
+                    datestr = date.getFullYear();
+                }
+                datestr = date.format("YYYY-MM-DDTHH:mm:SS");
+                data.date = datestr;
+                return data;
+            });
+
+            AricaleMetaCallBackManager.registerCallback(function (data, extargs) {
+                var value = jQuery("#post-formats-select input[type=radio]:checked").val();
+                if (value == "0") {
+                    data.format = "standard";
+                } else {
+                    data.format = value;
+                }
+                return data;
+            });
+
             var post = function (draft_button = true) {
                 var raw = editor.getMarkdown();
                 var title = 'no title';
