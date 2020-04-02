@@ -4,7 +4,7 @@
   "description": "## 简介",
   "main": "Gruntfile.js",
   "dependencies": {
-    "@toast-ui/editor": "^2.0.0",
+    "@toast-ui/editor": "^2.0.1",
     "@toast-ui/editor-plugin-chart": "^1.0.0",
     "@toast-ui/editor-plugin-code-syntax-highlight": "^1.0.0",
     "@toast-ui/editor-plugin-color-syntax": "^1.0.0",
@@ -20,9 +20,9 @@
     "to-mark": "^1.1.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.9.0",
     "babel-preset-es2015": "^7.0.0-beta.3",
-    "gulp": "^4.0.1",
+    "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-rename": "^1.4.0"
   },

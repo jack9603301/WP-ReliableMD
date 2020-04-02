@@ -28,6 +28,12 @@
 	top: 0px;
 }
 
+#bottom-metabox {
+	position: absolute;
+	width: 80%;
+	top: 650px;
+}
+
 .submitbox {
 	position: relative;
 	width: 100%;
@@ -53,4 +59,106 @@
 	/* to show submit buttom*/
 	width: 80%;
 	top: 0px;
+}
+
+
+.postbox {
+	position: relative;
+	min-width: 255px;
+	border: 1px solid #ccd0d4;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	background:  #fff;
+}
+
+.postbox, .stuffbox {
+	margin-bottom: 20px;
+	padding: 0;
+	line-height: 1;
+}
+
+.postbox .hndle, .stuffbox .hndle {
+	border-bottom: 1px solid #ccd0d4;
+}
+
+.postbox .hndle, .stuffbox .hndle {
+	user-select: none;
+}
+
+.js .postbox .hndle, .js .widget .widget-top {
+	cursor: move;
+}
+
+#poststuff .stuffbox > h3, #poststuff h2, #poststuff h3.hndle {
+	font-size: 14px;
+	padding: 8px 12px;
+	margin: 0;
+	line-height: 1.4;
+}
+
+.screen-reader-text, .screen-reader-text span, .ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(1px,1px,1px,1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.wp-core-ui button::-moz-focus-inner, .wp-core-ui input[type="button"]::-moz-focus-inner, .wp-core-ui input[type="reset"]::-moz-focus-inner, .wp-core-ui input[type="submit"]::-moz-focus-inner {
+    border-width: 0;
+    border-style: none;
+    padding: 0;
+}
+
+
+.bulk-action-notice .toggle-indicator::before, .js .meta-box-sortables .postbox .toggle-indicator::before, .privacy-text-box .toggle-indicator::before, .sidebar-name .toggle-indicator::before {
+    content: "\f142";
+    display: inline-block;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none !important;
+}
+
+.js .postbox .handlediv .toggle-indicator::before {
+    margin-top: 4px;
+    width: 20px;
+    border-radius: 50%;
+    text-indent: -1px;
+}
+
+.accordion-section-title::after, .handlediv, .item-edit, .postbox .handlediv.button-link, .toggle-indicator {
+    color: #72777c;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.postbox .handlediv {
+    display: none;
+    float: right;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: 0 0;
+    cursor: pointer;
+}
+.accordion-section-title::after, .handlediv, .item-edit, .postbox .handlediv.button-link, .toggle-indicator {
+    color: #72777c;
+}
+button, input, select, textarea {
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }

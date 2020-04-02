@@ -24,6 +24,8 @@ class Controller {
 
 //		wp_deregister_script( 'jquery' );
 
+		wp_register_script( 'post', ABSPATH . '/wp-admin/js/post.js', array( ), WPReliableMD_VER, false );
+		wp_register_script( 'postbox', ABSPATH . '/wp-admin/js/postbox.js', array( ), WPReliableMD_VER, false );
 		wp_register_script( 'require', WPReliableMD_URL . '/js/require.js', array(), WPReliableMD_VER, false );
 		wp_register_script( 'require-paths', WPReliableMD_URL . '/js/require_paths.js', array( 'require' ), WPReliableMD_VER, false );
 		wp_register_script( 'DateExt', WPReliableMD_URL . '/js/DateExt.js', array( 'require-paths' ), WPReliableMD_VER, false );
@@ -38,6 +40,7 @@ class Controller {
 	public function WPReliableMD_Register_Style() {
 
 		$js_dep_lib_root = 'https://cdn.jsdelivr.net/npm/';
+		wp_register_style( 'dashicons-css', ABSPATH . '/wp-includes/css/dashicons.min.css', array(), WPReliableMD_VER, false );
 		wp_register_style( 'normalize', WPReliableMD_URL . '/css/normalize.css', array(), WPReliableMD_VER, false );
 		wp_register_style( 'codemirror', $js_dep_lib_root.'/codemirror/lib/codemirror.css', array( 'normalize' ), WPReliableMD_VER, false );
 		wp_register_style( 'github', $js_dep_lib_root.'/highlightjs/styles/github.css', array( 'codemirror' ), WPReliableMD_VER, false );

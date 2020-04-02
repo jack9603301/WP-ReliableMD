@@ -32,6 +32,9 @@ class Controller {
 		);
 		wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
 		wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
+		do_action('admin_enqueue_scripts');
+		wp_enqueue_script('post');
+		wp_enqueue_script('postbox');
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
 		wp_enqueue_script('DateExt');
@@ -65,6 +68,7 @@ class Controller {
 	}
 
 	public function WPReliableMD_Enqueue_Style() {
+		do_action('admin_enqueue_style');
 		wp_enqueue_style( 'normalize' );
 		wp_enqueue_style( 'codemirror' );
 		wp_enqueue_style( 'github' );
@@ -74,6 +78,7 @@ class Controller {
 		wp_enqueue_style( 'tui-chart' );
 		wp_enqueue_style( 'katex' );
 		wp_enqueue_style( 'ReliableMD' );
+		
 	}
 
 	public function WPReliableMD_admin_body_class($classes) {
@@ -87,7 +92,7 @@ class Controller {
 	}
 
 	public function WPReliableMD_Page_Init($post) {
-		global $post_type_object;
+		global $post_type_object,$title, $post_type;
 		$this->WPReliableMD_Enqueue_Scripts($post->ID);
 		$this->WPReliableMD_Enqueue_Style();
 
@@ -100,8 +105,27 @@ class Controller {
 			<div id="code-html">
 				 <div id="editSection"></div>
 				 <div id="right-metabox" class="metabox">
-					<?php post_submit_meta_box($post,array()); ?>
+					 <div id="submit" class="postbox">
+						 <button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: submit")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						 </button>
+						 <h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("submit")); ?></span>
+						 </h2>
+						<?php post_submit_meta_box($post,array()); ?>
+					 </div>
 					<?php post_format_meta_box($post,array());?>
+					<?php post_tags_meta_box($post,array()); ?>
+					<?php post_categories_meta_box($post,array()); ?>
+				</div>
+				<div id="bottom-metabox" class="metabox">
+					<?php post_excerpt_meta_box($post); ?>
+					<?php post_trackback_meta_box($post); ?>
+					<?php post_custom_meta_box($post); ?>
+					<?php do_action('add_meta_boxes',$post_type,$post);  ?>
 				</div>
 			</div>
 		</div>
