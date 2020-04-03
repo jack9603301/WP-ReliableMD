@@ -163,9 +163,48 @@ class Controller {
 					</div>
 				</div>
 				<div id="bottom-metabox" class="metabox">
-					<?php post_excerpt_meta_box($post); ?>
-					<?php post_trackback_meta_box($post); ?>
-					<?php post_custom_meta_box($post); ?>
+					<div id="postexcerpt" class="postbox">
+						<button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: excerpt")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+						<h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("excerpt")); ?></span>
+						</h2>
+						<div class="inside">
+							<?php post_excerpt_meta_box($post); ?>
+						</div>
+					</div>
+					<div id="trackback" class="postbox">
+						<button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: trackback")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+						<h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("trackback")); ?></span>
+						</h2>
+						<div class="inside">
+							<?php post_trackback_meta_box($post); ?>
+						</div>
+					</div>
+					<div id="custom" class="postbox">
+						<button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: custom")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+						<h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("custom")); ?></span>
+						</h2>
+						<div class="inside">
+							<?php post_custom_meta_box($post); ?>
+						</div>
+					</div>
 					<?php do_action('add_meta_boxes',$post_type,$post);  ?>
 				</div>
 			</div>
