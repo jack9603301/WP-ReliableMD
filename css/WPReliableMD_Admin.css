@@ -30,7 +30,7 @@
 
 #bottom-metabox {
 	position: absolute;
-	width: 80%;
+	width: 78%;
 	top: 650px;
 }
 
@@ -47,7 +47,7 @@
 
 #editor-title {
 	position: relative;
-	width: 80%;
+	width: 78%;
 }
 
 
@@ -57,7 +57,7 @@
 	box-sizing: border-box;
 	height: 600px;
 	/* to show submit buttom*/
-	width: 80%;
+	width: 78%;
 	top: 0px;
 }
 
@@ -68,6 +68,45 @@
 	border: 1px solid #ccd0d4;
 	box-shadow: 0 1px 1px rgba(0,0,0,.04);
 	background:  #fff;
+}
+
+.hidden, .js .closed .inside, .js .hide-if-js, .js .wp-core-ui .hide-if-js, .js.wp-core-ui .hide-if-js, .no-js .hide-if-no-js, .no-js .wp-core-ui .hide-if-no-js, .no-js.wp-core-ui .hide-if-no-js {
+
+    display: none;
+
+}
+
+#linksubmitdiv .inside, #code-html #submit .inside {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+#poststuff .inside {
+
+    margin: 6px 0 0 0;
+
+}
+
+.postbox .inside {
+
+    margin: 11px 0;
+    position: relative;
+
+}
+
+.postbox .inside {
+
+    padding: 0 12px 12px;
+    line-height: 1.4;
+    font-size: 13px;
+
+}
+a, div {
+
+    outline: 0;
+
 }
 
 .postbox, .stuffbox {
@@ -88,7 +127,7 @@
 	cursor: move;
 }
 
-#poststuff .stuffbox > h3, #poststuff h2, #poststuff h3.hndle {
+#code-html .stuffbox > h3, #code-html h2, #code-html h3.hndle {
 	font-size: 14px;
 	padding: 8px 12px;
 	margin: 0;
@@ -114,8 +153,20 @@
     padding: 0;
 }
 
+.bulk-action-notice .bulk-action-errors-collapsed .toggle-indicator::before, .js .metabox .postbox.closed .handlediv .toggle-indicator::before, .js .widgets-holder-wrap.closed .toggle-indicator::before, .privacy-text-box.closed .toggle-indicator::before {
 
-.bulk-action-notice .toggle-indicator::before, .js .meta-box-sortables .postbox .toggle-indicator::before, .privacy-text-box .toggle-indicator::before, .sidebar-name .toggle-indicator::before {
+    content: "\f140";
+
+}
+
+.js .postbox .handlediv:focus .toggle-indicator::before {
+
+	box-shadow: 0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,.8);
+	
+}
+
+
+.bulk-action-notice .toggle-indicator::before, .js .metabox .postbox .toggle-indicator::before, .privacy-text-box .toggle-indicator::before, .sidebar-name .toggle-indicator::before {
     content: "\f142";
     display: inline-block;
     font: normal 20px/1 dashicons;
@@ -123,6 +174,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-decoration: none !important;
+}
+
+
 }
 
 .js .postbox .handlediv .toggle-indicator::before {
@@ -162,3 +216,21 @@ button, input, select, textarea {
     font-size: inherit;
     font-weight: inherit;
 }
+
+::placeholder {
+
+    color: #72777c;
+    opacity: 1;
+}
+
+
+
+#code-html .stuffbox > h3, #code-html h2, #code-html h3.hndle {
+
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 0;
+    line-height: 1.4;
+
+}
+

@@ -115,11 +115,52 @@ class Controller {
 						 <h2 class="hndle ui-sortable-handle">
 							 <span><?php echo(_e("submit")); ?></span>
 						 </h2>
-						<?php post_submit_meta_box($post,array()); ?>
+						 <div class="inside">
+							<?php post_submit_meta_box($post,array()); ?>
+						</div>
 					 </div>
-					<?php post_format_meta_box($post,array());?>
-					<?php post_tags_meta_box($post,array()); ?>
-					<?php post_categories_meta_box($post,array()); ?>
+					 <div id="format" class="postbox">
+						 <button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: format")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						 </button>
+						 <h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("format")); ?></span>
+						 </h2>
+						 <div class="inside">
+							<?php post_format_meta_box($post,array());?>
+						</div>
+					</div>
+					<div id="tags" class="postbox">
+						 <button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: tags")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						 </button>
+						 <h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("tags")); ?></span>
+						 </h2>
+						 <div class="inside">
+							<?php post_tags_meta_box($post,array()); ?>
+						</div>
+					</div>
+					<div id="categories" class="postbox">
+						 <button class="handlediv" type="button" aria-expanded="true">
+							 <span class="screen-reader-text">
+								 <?php echo(_e("switch: categories")) ?>
+							 </span>
+							 <span class="toggle-indicator" aria-hidden="true"></span>
+						 </button>
+						 <h2 class="hndle ui-sortable-handle">
+							 <span><?php echo(_e("categories")); ?></span>
+						 </h2>
+						 <div class="inside">
+							<?php post_categories_meta_box($post,array()); ?>
+						</div>
+					</div>
 				</div>
 				<div id="bottom-metabox" class="metabox">
 					<?php post_excerpt_meta_box($post); ?>
