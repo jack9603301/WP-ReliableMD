@@ -24,11 +24,6 @@ requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tu
         result: true
     };
 
-    //Init
-    var init = function () {
-
-    }
-
 
     $(document).ready(
         function () {
