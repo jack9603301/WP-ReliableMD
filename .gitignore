@@ -6,3 +6,4 @@ package-lock.json
 */package-lock.json
 Assets/*
 node_modules/*
+yarn.lock
