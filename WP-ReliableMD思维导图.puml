@@ -1,0 +1,60 @@
+@startmindmap
+
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor red
+skinparam titleBackgroundColor Aqua-CadetBlue
+
+title WP-ReliableMD思维导图
+
++ WP-ReliableMD
+++ 前端
++++ 编辑器
+++++ 基于tui-editor
++++ 渲染
+++++ 使用REST API接口wp-json/WPReliableMD/config获取设置信息
+++++ 基于css的控制markdown数据隐藏
+++++ 返回预渲染结果，在正式渲染返回前显示预渲染结果
+++++ 将渲染结果回传，进入缓存区作为预渲染结果
++++ 后台界面效果的实现
++++ 使用Pot国际化框架输出中文（Poedit）
+++ 特性
++++ 基础Markdown
++++ 支持公式渲染
+++++ Katex
+++++ MathJax
++++ 前端+后端，二次渲染支持
++++ 可扩展 定制主题
++++ 支持UML
+++++ 支持mermaid
+++++ 支持自带的UML绘制
++++ 插件兼容
+++++ WP Editor.md
+++++ WP HyperMD
++++ 支持图标绘制
++++ 表格扩展
+++++ 合并单元格
++++ 支持shortcode解析markdown
++++ 支持缓存时间过期
+-- 暂未解决的问题
+--- 界面设计问题
+--- 设置页面
+--- mathjax还没有适配
+--- 没有考虑Option的选择逻辑
+-- 后端
+--- REST API
+---- 实现REST API 获取用户设置便于前端通讯wp-json/WP-ReliableMD/config
+--- 使用the_content对markdown做后端渲染
+--- 一个设置页面
+--- 使用the_content对markdown做返回，提取第一段
+--- 支持后端渲染方式对markdown做预渲染
+-- 界面设计
+--- 线性的工作流
+---- 引导
+---- 编辑
+----- 全屏化的编辑器
+----- 集成工具的侧边栏
+---- 修改
+---- 确认
+---- 发布
+@endmindmap
