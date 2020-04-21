@@ -2,7 +2,7 @@
 
 ## 简介 :id=brief-introduction
 
-一个可靠、美观、功能强大的WordPress的markdown插件，同时支持支持编辑和渲染，为了替换一只猫的[WPEditor.md](https://wordpress.org/plugins/wp-editormd/)编辑器而开发，成为下一代markdown编辑器 
+一个可靠、美观、功能强大的WordPress的markdown插件，同时支持支持编辑和渲染，为了替换一只猫的[WPEditor.md](https://wordpress.org/plugins/wp-editormd/ ':ignore')编辑器而开发，成为下一代markdown编辑器 
 
 编辑器正在开发中，未正式发布，不建议使用
 
