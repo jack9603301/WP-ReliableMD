@@ -19,6 +19,7 @@ before_install:
     - mkdir -p tests/code_coverage/
 install:
   - composer install
+  - yarn install
 script:
  - php vendor/bin/phpunit
 after_success:
