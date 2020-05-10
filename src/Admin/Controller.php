@@ -32,13 +32,14 @@ class Controller {
 		);
 		wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
 		wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
-		do_action('admin_enqueue_scripts');
+		
 		wp_enqueue_script('post');
 		wp_enqueue_script('postbox');
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
 		wp_enqueue_script('DateExt');
 		wp_enqueue_script('CallBackManager');
+		wp_enqueue_script('tags-box');
 
 
 		$CallbackCustomScripts = array();
@@ -65,10 +66,10 @@ class Controller {
 		 }
 
 		 wp_enqueue_script( 'ReliableMD' );
+		 //do_action('admin_enqueue_scripts');
 	}
 
 	public function WPReliableMD_Enqueue_Style() {
-		do_action('admin_enqueue_style');
 		wp_enqueue_style( 'normalize' );
 		wp_enqueue_style( 'codemirror' );
 		wp_enqueue_style( 'github' );
@@ -210,6 +211,7 @@ class Controller {
 			</div>
 		</div>
 		<?php
+		do_action('admin_enqueue_style');
 	}
 
 	public function WPReliableMD_init( $return, $post ) {

@@ -35,6 +35,8 @@ class Controller {
 		//wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
 		//wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
 
+		wp_register_script( 'tags-box', ABSPATH . '/wp-admin/js/tags-box.min.js', array(),false, false );
+
 	}
 
 	public function WPReliableMD_Register_Style() {
