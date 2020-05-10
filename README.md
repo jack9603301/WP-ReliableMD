@@ -56,6 +56,6 @@ Editor is under development, not officially released, not recommended
 You can participate as follows:
 1. Person in charge QQ: 744439622(If you can use QQ)
 2. QQ group: 903666780(If you can use QQ)
-3. Set sail sky chat channel, join [set sail sky chat channel] (https://chat.qhjack.cn) and declare in general that it is the reason, and we will enter WP reliablemd.
+3. Set sail sky chat channel, join [set sail sky chat channel](https://chat.qhjack.cn) and declare in general that it is the reason, and we will enter WP reliablemd.
 4. Join here [![Gitter](https://badges.gitter.im/WP-ReliableMD/community.svg)](https://gitter.im/WP-ReliableMD/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 5. Give us suggestions through issus or problems encountered in using the plug-in
