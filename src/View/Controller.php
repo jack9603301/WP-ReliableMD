@@ -144,9 +144,6 @@ class Controller {
 
 	public function WPReliableMD_Enqueue_Scripts() {
 		global $ReliableMDAdminController;
-		wp_enqueue_script( 'require' );
-		wp_enqueue_script( 'require-paths' );
-		wp_enqueue_script( 'WPReliableMDFrontend' );
 		if(is_null($ReliableMDAdminController)) {
 			$ReliableMDSetting = array(
 				'api_root'        => esc_url_raw( rest_url() ),
@@ -168,6 +165,10 @@ class Controller {
 		}
 
 		wp_localize_script( 'WPReliableMDFrontend', 'ReliableMD', $ReliableMDSetting );
+        wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
+        wp_enqueue_script( 'require' );                                                                                                                                                                                                       
+        wp_enqueue_script( 'require-paths' );
+        wp_enqueue_script( 'WPReliableMDFrontend' );
 	}
 
 	public function WPReliableMD_Enqueue_Style() {
