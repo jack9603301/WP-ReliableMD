@@ -4,6 +4,7 @@ about: Create a report to help us improve
 title: ''
 labels: bug,assessment,
 assignees: ''
+projects: WP-ReliableMD-1.x
 ---
 
 ## Describe the bug
