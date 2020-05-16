@@ -3,7 +3,8 @@ name: Bug report
 about: Create a report to help us improve
 title: ''
 labels: bug
-assignees: ''
+assignees: jack9603301
+
 ---
 
 ## Describe the bug
