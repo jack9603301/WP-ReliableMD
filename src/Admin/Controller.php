@@ -217,6 +217,10 @@ class Controller {
 	public function WPReliableMD_init( $return, $post ) {
 		global $title, $post_type;
 
+		if($post_type == null) {
+			return $return;
+		}
+
 		if ( true === $return && current_filter() === 'replace_editor' ) {
 			return $return;
 		}
