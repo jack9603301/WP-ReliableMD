@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for this project
+about: You can submit feature requests through it
 title: ''
 labels: Feature Request
 assignees: ''
