@@ -3,7 +3,7 @@ name: Bug report
 about: Please create bugs report sheet to help us improve it
 title: ''
 labels: bug
-assignees: ''
+assignees: jack9603301
 
 ---
 

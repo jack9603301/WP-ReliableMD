@@ -3,7 +3,7 @@ name: Feature Request
 about: You can submit feature requests through it
 title: ''
 labels: Feature Request
-assignees: ''
+assignees: jack9603301
 
 ---
 
