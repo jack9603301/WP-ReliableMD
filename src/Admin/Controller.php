@@ -40,6 +40,7 @@ class Controller {
 		wp_enqueue_script('DateExt');
 		wp_enqueue_script('CallBackManager');
 		wp_enqueue_script('tags-box');
+		wp_enqueue_script( 'common' );  
 
 
 		$CallbackCustomScripts = array();
@@ -225,7 +226,32 @@ class Controller {
 			return $return;
 		}
 
-		add_filter( 'screen_options_show_screen', '__return_true' );
+		//add_filter( 'screen_options_show_screen', '__return_true' );
+
+		$screen = get_current_screen();
+
+		if($screen != null) {
+
+			$screen->add_help_tab( array(
+				'id' => 'WP_ReliableMD',
+				'title' => __('WP_ReliableMD Help'),
+				'content' => '<p>'. __( 'Here, you can edit markdown articles as much as you like and preview them. The raw data of markdown articles will be saved to the database. Once WP_ReliabMD is disabled, all articles edited with this editor will not render.', 'wpreliablemd_textdomain' ). '</p>',
+			) );
+
+			$screen->add_help_tab( array(
+				'id' => 'WP_ReliableMD_Editor_Admin_display',
+				'title' => __('WP_ReliableMD Display'),
+				'content' => '<p>'. __( 'The position of the title area and the article editing area are fixed, but you can rearrange other modules by dragging. Click on the module title to minimize or expand the module. Some modules are hidden by default, and you can also unhide them (summary, send trackback, custom column, discussion, alias, and author) in the page using display options. You can also switch between one column / two column layouts.', 'wpreliablemd_textdomain' ). '</p>',
+			) );
+
+			$screen->add_option("display_custom",array(
+				'id' => 'display_custom',
+				'title' => __('Custom'),
+				'default' => false
+			));
+
+			do_action('current_screen',$screen);
+		}
 
 		$post_type_object = get_post_type_object( $post_type );
 		if ( ! empty( $post_type_object ) ) {
