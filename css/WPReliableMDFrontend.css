@@ -35,6 +35,7 @@
   list-style: none;
 }
 
-.tui-editor-contents ul, .tui-editor-contents li  {
+.tui-editor-contents ul,
+.tui-editor-contents li {
   list-style: none;
 }
