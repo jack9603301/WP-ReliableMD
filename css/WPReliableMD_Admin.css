@@ -244,3 +244,11 @@ button, input, select, textarea {
     background: #fff;
 
 }
+
+.tui-editor-contents ul, .tui-editor-contents ol  {
+  list-style: none;
+}
+
+.tui-editor-contents ul, .tui-editor-contents li  {
+  list-style: none;
+}

@@ -1,26 +1,40 @@
-.entry-content a{
-    box-shadow: none !important;
+.entry-content a {
+  box-shadow: none !important;
 }
 
 .tui-editor-contents .task-list-item {
-	padding-left: 22px !important;
-	list-style: none !important;
-	padding-left: 22px !important;
-	margin-left: -22px !important;
-	border-bottom: unset !important;
+  padding-left: 22px !important;
+  list-style: none !important;
+  padding-left: 22px !important;
+  margin-left: -22px !important;
+  border-bottom: unset !important;
 }
 
 .tui-editor-contents ul li {
-	overflow: unset !important;
-	list-style: disc !important;
-	padding-left: 8px !important;
-	margin-left: -5px;
-	border-bottom: unset !important;
+  overflow: unset !important;
+  list-style: disc !important;
+  padding-left: 8px !important;
+  margin-left: -5px;
+  border-bottom: unset !important;
 }
 
 .tui-editor-contents ol li {
-	overflow: unset !important;
-	padding-left: 8px !important;
-	margin-left: -5px;
-	border-bottom: unset !important;
+  overflow: unset !important;
+  padding-left: 8px !important;
+  margin-left: -5px;
+  border-bottom: unset !important;
+}
+
+.tui-editor-contents ul,
+.tui-editor-contents ol {
+  list-style: none !important;
+}
+
+.tui-editor-contents ul,
+.tui-editor-contents ol {
+  list-style: none;
+}
+
+.tui-editor-contents ul, .tui-editor-contents li  {
+  list-style: none;
 }
