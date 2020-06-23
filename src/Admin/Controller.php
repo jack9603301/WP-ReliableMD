@@ -244,12 +244,6 @@ class Controller {
 				'content' => '<p>'. __( 'The position of the title area and the article editing area are fixed, but you can rearrange other modules by dragging. Click on the module title to minimize or expand the module. Some modules are hidden by default, and you can also unhide them (summary, send trackback, custom column, discussion, alias, and author) in the page using display options. You can also switch between one column / two column layouts.', 'wpreliablemd_textdomain' ). '</p>',
 			) );
 
-			$screen->add_option("display_custom",array(
-				'id' => 'display_custom',
-				'title' => __('Custom'),
-				'default' => false
-			));
-
 			do_action('current_screen',$screen);
 		}
 
