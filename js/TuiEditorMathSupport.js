@@ -1,14 +1,18 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['tui-editor', 'tui-mathsupport'], factory);
+        define(['tui-mathsupport'], factory);
     } else if (typeof exports === 'object') {
-        factory(require('tui-editor'), require('tui-mathsupport'));
+        factory(require('tui-mathsupport'));
     } else {
-        factory(root['tui']['Editor'], root['tui-mathsupport']);
+        factory(root['tui-mathsupport']);
     }
-})(this, function (Editor, tuimath) {
-    function extracted() {
-        tuimath(Editor, true);
+})(this, function (tuimath) {
+    function extracted(editor) {
+        tuimath(editor, true);
+        editor.preview.eventManager.listen(
+            'previewRenderAfter',
+            tuimath.previewRender
+        );
     }
     return extracted;
 });

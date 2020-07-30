@@ -1,14 +1,16 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['tui-viewer', 'tui-mathsupport'], factory);
+        define(['tui-mathsupport'], factory);
     } else if (typeof exports === 'object') {
-        factory(require('tui-viewer'), require('tui-mathsupport'));
+        factory(require('tui-mathsupport'));
     } else {
-        factory(root['tui']['Viewer'], root['tui-mathsupport']);
+        factory(root['tui-mathsupport']);
     }
-})(this, function (Viewer, tuimath) {
-    function extracted() {
-        tuimath(Viewer, false);
+})(this, function (tuimath) {
+    function extracted(viewer) {
+        tuimath(viewer, false);
+        var markdownblock = document.querySelector('.markdown-block')
+        markdownblock = tuimath.viewerRender(markdownblock);
     }
     return extracted;
 });

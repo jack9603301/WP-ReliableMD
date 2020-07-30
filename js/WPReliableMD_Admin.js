@@ -11,8 +11,7 @@ requirejs(
     'tui-table-merged-cell',
     'tui-uml',
     'htmlToText',
-    'editor-mathsupport',
-    'tui-mathsupport',
+    'editor-mathsupport'
   ],
   function (
     $,
@@ -24,7 +23,6 @@ requirejs(
     Uml,
     htmlToText,
     mathsupport,
-    viewerMathsupport
   ) {
     var AricaleMetaCallBackManager = CallBackManager(
       'AricaleMetaCallBackManager'
@@ -414,11 +412,11 @@ requirejs(
         maxHeight: 300,
       };
 
-    console.log(chart);
-    console.log(codeSyntaxHighlight);
-    console.log(TableMergedCell);
-    console.log(Uml);
-    console.log(mathsupport);
+      console.log(chart);
+      console.log(codeSyntaxHighlight);
+      console.log(TableMergedCell);
+      console.log(Uml);
+      console.log(mathsupport);
 
       editor = new Editor({
         el: document.querySelector('#editSection'),
@@ -439,12 +437,6 @@ requirejs(
 
       console.log(editor.preview.eventManager);
 
-      //editor.preview.eventManager.listen('convertorAfterMarkdownToHtmlConverted', viewerMathsupport.viewerRender)
-
-      editor.preview.eventManager.listen(
-        'previewRenderAfter',
-        viewerMathsupport.previewRender
-      );
     });
   }
 );
