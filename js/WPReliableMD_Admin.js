@@ -414,6 +414,12 @@ requirejs(
         maxHeight: 300,
       };
 
+    console.log(chart);
+    console.log(codeSyntaxHighlight);
+    console.log(TableMergedCell);
+    console.log(Uml);
+    console.log(mathsupport);
+
       editor = new Editor({
         el: document.querySelector('#editSection'),
         previewStyle: 'vertical',

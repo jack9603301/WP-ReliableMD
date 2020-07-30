@@ -193,7 +193,7 @@ class Controller {
 							<?php post_trackback_meta_box($post); ?>
 						</div>
 					</div>
-					<div id="custom" class="postbox">
+					<div id="postcustom" class="postbox">
 						<button class="handlediv" type="button" aria-expanded="true">
 							 <span class="screen-reader-text">
 								 <?php echo(_e("switch: custom")) ?>

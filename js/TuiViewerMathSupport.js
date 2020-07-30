@@ -7,7 +7,10 @@
         factory(root['tui']['Viewer'], root['tui-mathsupport']);
     }
 })(this, function (Viewer, tuimath) {
-    tuimath(Viewer, false);
+    function extracted() {
+        tuimath(Viewer, false);
+    }
+    return extracted;
 });
 
 

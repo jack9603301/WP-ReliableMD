@@ -7,5 +7,8 @@
         factory(root['tui']['Editor'], root['tui-mathsupport']);
     }
 })(this, function (Editor, tuimath) {
-    tuimath(Editor, true);
+    function extracted() {
+        tuimath(Editor, true);
+    }
+    return extracted;
 });
