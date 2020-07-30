@@ -12,7 +12,7 @@
 
 .tui-editor-contents ul li {
   overflow: unset !important;
-  list-style: disc !important;
+  list-style: none !important;
   padding-left: 8px !important;
   margin-left: -5px;
   border-bottom: unset !important;
@@ -20,6 +20,7 @@
 
 .tui-editor-contents ol li {
   overflow: unset !important;
+  list-style: none !important;
   padding-left: 8px !important;
   margin-left: -5px;
   border-bottom: unset !important;
