@@ -9,8 +9,6 @@
 })(this, function (tuimath) {
     function extracted(viewer) {
         tuimath(viewer, false);
-        var markdownblock = document.querySelector('.markdown-block')
-        markdownblock = tuimath.viewerRender(markdownblock);
     }
     return extracted;
 });
