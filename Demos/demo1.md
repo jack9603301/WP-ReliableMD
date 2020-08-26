@@ -1,3 +1,5 @@
+# WP-ReliableMD Demo
+
 ![image](https://cloud.githubusercontent.com/assets/389021/16107646/9729e556-33d8-11e6-933f-5b09fa3a53bb.png)
 
 # GFM Markdown
@@ -6,9 +8,17 @@
 #### Heading 4
 ##### Heading 5
 ###### Heading 6
-$$f(x)=x^2$$ block
+\\[f(x)=x^2\\] block
 
-test$f_2(x)=2^{f(x)}$ inline
+test\\(f_2(x)=2^{f(x)}\\) inline
+
+```latex
+f(x)=x^2
+```
+
+```inlinelatex
+f_2(x)=2^{f(x)}
+```
 
     code block
 ```js
