@@ -41,5 +41,4 @@
 1. 负责人qq：744439622（如果您能使用qq）
 2. qq群：903666780（如果您能使用qq）
 3. 起航天空chat频道，加入[起航天空——聊天频道](http://mattermost.qhjack.cn/signup_user_complete/?id=ujqh74dqgjn4uefsdueqgii4yo)。
-4. 加入这里[![Gitter](https://badges.gitter.im/WP-ReliableMD/community.svg)](https://gitter.im/WP-ReliableMD/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 5. 通过issus给我们提意见或者使用该插件遇到的问题
