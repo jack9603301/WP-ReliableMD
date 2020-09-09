@@ -1,29 +1,8 @@
 // Start the main app logic.
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
-requirejs(
-  [
-    'jquery',
-    'tui-editor',
-    'tui-chart',
-    'tui-code-syntax-highlight',
-    'tui-color-syntax',
-    'tui-table-merged-cell',
-    'tui-uml',
-    'htmlToText',
-    'editor-mathsupport'
-  ],
-  function (
-    $,
-    Editor,
-    chart,
-    codeSyntaxHighlight,
-    colorSyntax,
-    TableMergedCell,
-    Uml,
-    htmlToText,
-    mathsupport,
-  ) {
+requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-color-syntax','tui-table-merged-cell','tui-uml','htmlToText','editor-mathsupport'],
+  function ($,Editor,chart,codeSyntaxHighlight,colorSyntax,TableMergedCell,Uml,htmlToText,mathsupport) {
     var AricaleMetaCallBackManager = CallBackManager(
       'AricaleMetaCallBackManager'
     );
