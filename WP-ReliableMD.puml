@@ -15,7 +15,6 @@ title WP-ReliableMD思维导图
 ++++ 使用REST API接口wp-json/WPReliableMD/config获取设置信息
 ++++ 基于css的控制markdown数据隐藏
 ++++ 返回预渲染结果，在正式渲染返回前显示预渲染结果
-++++ 将渲染结果回传，进入缓存区作为预渲染结果
 +++ 后台界面效果的实现
 +++ 使用Pot国际化框架输出中文（Poedit）
 ++ 特性
