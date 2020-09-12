@@ -73,43 +73,4 @@ requirejs(['jquery'], function($){
     		render.setCallback(callback);
 		});
 	}
-
-	$('.posts .viewes-contents .tui-editor-contents').each(function() {
-		var text = $(this).html();
-		console.log(ReliableMD);
-        $.ajax({
-            url: ReliableMD.api_root + 'WP-ReliableMD/markdown/render/' + ReliableMD.id,
-            //url: ReliableMD.root + 'WPReliableMD/posts/' + post_id,
-            method: 'PUT',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-WP-Nonce', ReliableMD.nonce);
-            },
-            data: text
-        }).done(function (response) {
-            console.log(response);
-			post_id = response.id;
-            console.log('Update Object Cached');
-        });
-	});
-	$('.shortcode .viewes-contents .tui-editor-contents').each(function() {
-		var text = $(this).html();
-		var shortcode = $(this).parents('.shortcode');
-		console.log(ReliableMD);
-        $.ajax({
-            url: ReliableMD.api_root + 'WP-ReliableMD/markdown/render/shortcode',
-            //url: ReliableMD.root + 'WPReliableMD/posts/' + post_id,
-            method: 'PUT',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-WP-Nonce', ReliableMD.nonce);
-            },
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify({
-            	'hash':shortcode.attr('hash'),
-            	'cached':text
-            })
-        }).done(function (response) {
-            console.log(response);
-            console.log('Update Object Cached');
-        });
-	});
 });

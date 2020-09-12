@@ -24,14 +24,6 @@ class Controller {
 			'methods'   => 'POST',
 			'callback'  => array($this,'WPReliableMD_Config_Api_Set')
 		]);
-		register_rest_route(WPReliableMD_NAME, 'markdown/render/(?P<id>[\d]+)', [
-			'methods'   => 'PUT',
-			'callback'  => array($this,'WPReliableMD_Cache_markdown_render')
-		]);
-		register_rest_route(WPReliableMD_NAME, 'markdown/render/shortcode', [
-			'methods'   => 'PUT',
-			'callback'  => array($this,'WPReliableMD_ShortCode_Cache_markdown_render')
-		]);
 		add_filter( 'rest_prepare_post', array($this,'WPReliableMD_REST_Posts'), 10, 3 );
 
 		register_rest_field('post','markdown',array(
@@ -48,42 +40,6 @@ class Controller {
 		} else {
 			return $request->get_json_params();
 		}
-	}
-
-	public function WPReliableMD_Cache_markdown_render($request) {
-		$content_type = $request->get_content_type();
-		if ( empty( $content_type ) || 'application/x-www-form-urlencoded' !== $content_type['value'] ) {
-			return new \WP_Error( 'rest_invalid_content_type', __( 'Invalid Content-type.' ));
-		}
-		$id = $request['id'];
-		if(wp_cache_set($id,$request->get_body(),'markdown_backend_rendered')) {
-			return [
-				'id' => $id,
-				'result' => 'Success'
-			];
-		}
-		else {
-			return new \WP_Error( 'rest_put_cache_failure', __( 'Failure to update object cache.' ));
-		}
-		
-	}
-
-	public function WPReliableMD_ShortCode_Cache_markdown_render($request) {
-		$content_type = $request->get_content_type();
-		if ( empty( $content_type ) || 'application/json' !== $content_type['value'] ) {
-			return new \WP_Error( 'rest_invalid_content_type', __( 'Invalid Content-type.' ));
-		}
-		$json = $request->get_json_params();
-		$hash = $json['hash'];
-		if(wp_cache_set($hash,$json['cached'],'markdown_backend_rendered:shortcode')) {
-			return [
-				'hash' => $hash,
-				'result' => 'Success'
-			];
-		} else {
-			return new \WP_Error( 'rest_put_cache_failure', __( 'Failure to update object cache.' ));
-		}
-
 	}
 
 	public function WPReliableMD_REST_Posts($response, $post, $request  ) {
