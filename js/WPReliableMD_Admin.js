@@ -50,7 +50,7 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
               content += '---\n';
           } else {
               content = '---\n';
-              content += apost.title.rendered;
+              content += 'title: ' + apost.title.rendered;
               content += '---\n';
           }
           content += raw_md;
