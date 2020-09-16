@@ -30,6 +30,11 @@ class Controller {
 			'get_callback' => array($this,'WPReliableMD_REST_Post_markdown_Get'),
 			'update_callback' => array($this,'WPReliableMD_REST_Post_markdown_Update')
 		));
+		
+		register_rest_field('post','markdown_fontmatter',array(
+			'get_callback' => array($this,'WPReliableMD_REST_Post_markdown_fontmatter_Get'),
+			'update_callback' => array($this,'WPReliableMD_REST_Post_markdown_fontmatter_Update')
+		));
 	}
 
 	public function WPReliableMD_Config_Api_Set($request) {
@@ -55,6 +60,11 @@ class Controller {
 			$content = ViewController::WPReliableMD_Content($content);
 			$data['content']['rendered'] = $content;
 
+			//读取信头
+            $fontmatter = get_post_meta($post->ID,'fontmatter',true);
+            if($fontmatter) {
+                $data['content']['fontmatter'] = $fontmatter;
+            }
 			/*
 		 	 * filter  : markdown_rest_post_override($data)
 		 	 * comment : The REST API interface implements the post type article to retrieve the JSON field when it is fetch.
@@ -63,6 +73,7 @@ class Controller {
 		 	 */
 			$data = apply_filters('markdown_rest_post_override',$data);
 		}
+
 
 		$response->data = $data; //根据wordpress插件约定，应该修改第一参数然后返回
 		return $data;
@@ -85,6 +96,19 @@ class Controller {
 		} else {
 			update_post_meta($postid, 'markdown', 'false');
 		}
+		
+		return true;
+	}
+	
+	public function WPReliableMD_REST_Post_markdown_fontmatter_Get($post) {
+		$markdown_fontmatter = get_post_meta( $post['id'], 'fontmatter',true);
+		
+		return $markdown_fontmatter;
+	}
+
+	public function WPReliableMD_REST_Post_markdown_fontmatter_Update($data, $post) {
+		$postid = $post->ID;
+		update_post_meta($postid, 'fontmatter', $data);
 		
 		return true;
 	}

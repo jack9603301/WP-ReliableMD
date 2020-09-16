@@ -38,10 +38,23 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
         $.get(ReliableMD.api_root + 'wp/v2/posts/' + post_id, function (apost) {
           console.log(apost);
           
+          var fontmatter = apost.markdown_fontmatter;
+          
           var raw_md = apost.markdown
             ? apost.content.markdown
             : htmlToText(apost.content.rendered);
-          content = raw_md;
+            
+          if(fontmatter) {
+              content = '---\n';
+              content += jsyaml.safeDump(fontmatter);
+              content += '---\n';
+          } else {
+              content = '---\n';
+              content += apost.title.rendered;
+              content += '---\n';
+          }
+          content += raw_md;
+          
           editor.setMarkdown(content);
         });
       } else {
@@ -233,9 +246,11 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
           raw = raw.split('\n').slice(1).join('\n');
         }*/
         let fontmatter_reg = /---(.*?)---/sg
-        var fontmatter = jsyaml.safeLoad(fontmatter_reg.exec(raw)[1]);
-        if(fontmatter.title) {
-            title=fontmatter.title;
+        var fontmatter = fontmatter_reg.exec(raw);
+        var fontmatter_yaml = jsyaml.safeLoad(fontmatter[1]);
+        if(fontmatter_yaml.title) {
+            title=fontmatter_yaml.title;
+            raw = raw.replace(fontmatter[0],"");
         }
 
         var post_status;
@@ -244,6 +259,7 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
           title: title,
           content: raw,
           markdown: true,
+          markdown_fontmatter: fontmatter_yaml
         };
 
         if (typeof AricaleMetaCallBackManager == 'object') {
