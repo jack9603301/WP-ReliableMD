@@ -403,6 +403,7 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
         height: '600px',
         initialEditType: 'markdown',
         useCommandShortcut: true,
+        frontMatter: true,
         initialValue: content,
         plugins: [
           [chart, chartOptions],

@@ -65,6 +65,7 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
             var viewer = new Viewer({
                 el: ele[0],
                 viewer: true,
+                frontMatter: true,
                 initialValue: ptext,
                 events: {
                     load: viewerLoader
