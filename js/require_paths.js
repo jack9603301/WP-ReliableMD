@@ -50,7 +50,8 @@ function configure_requirejs() {
             'markdown-it-mathsupport': lib_js + 'markdown-it-mathsupport/markdown-it-mathsupport',
             'ReliableMD_render': lib_js + 'WPReliableMD_render',
             'htmlToText': lib_js + 'jsHtmlToText',
-            'MarkdowConvertor': lib_js + 'MarkdownConvertor'
+            'MarkdowConvertor': lib_js + 'MarkdownConvertor',
+            'js-yaml': lib_dep + 'js-yaml/dist/js-yaml.min'
         },
         shim: {
             'raphael': {

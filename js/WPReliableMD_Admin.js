@@ -1,8 +1,8 @@
 // Start the main app logic.
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
-requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-color-syntax','tui-table-merged-cell','tui-uml','htmlToText','editor-mathsupport'],
-  function ($,Editor,chart,codeSyntaxHighlight,colorSyntax,TableMergedCell,Uml,htmlToText,mathsupport) {
+requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-color-syntax','tui-table-merged-cell','tui-uml','htmlToText','editor-mathsupport','js-yaml'],
+  function ($,Editor,chart,codeSyntaxHighlight,colorSyntax,TableMergedCell,Uml,htmlToText,mathsupport,jsyaml) {
     var AricaleMetaCallBackManager = CallBackManager(
       'AricaleMetaCallBackManager'
     );
@@ -37,14 +37,15 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
         content = '';
         $.get(ReliableMD.api_root + 'wp/v2/posts/' + post_id, function (apost) {
           console.log(apost);
+          
           var raw_md = apost.markdown
             ? apost.content.markdown
             : htmlToText(apost.content.rendered);
-          content = ['# ' + apost.title.rendered, raw_md].join('\n');
+          content = raw_md;
           editor.setMarkdown(content);
         });
       } else {
-        content = '# Your title here';
+        content = '---\ntitle: Your title here\n---\n';
       }
 
       if (typeof AricaleInitCallBackManager == 'object') {
@@ -225,11 +226,16 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
       var post = function (draft_button = true) {
         var raw = editor.getMarkdown();
         var title = 'no title';
-        if (raw.indexOf('#') === 0) {
+        /*if (raw.indexOf('#') === 0) {
           raw.replace(/^# *(.+)/, function (s, value) {
             title = value;
           });
           raw = raw.split('\n').slice(1).join('\n');
+        }*/
+        let fontmatter_reg = /---(.*?)---/sg
+        var fontmatter = jsyaml.safeLoad(fontmatter_reg.exec(raw)[1]);
+        if(fontmatter.title) {
+            title=fontmatter.title;
         }
 
         var post_status;
