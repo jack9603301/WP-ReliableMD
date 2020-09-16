@@ -245,7 +245,7 @@ requirejs(['jquery','tui-editor','tui-chart','tui-code-syntax-highlight','tui-co
           });
           raw = raw.split('\n').slice(1).join('\n');
         }*/
-        let fontmatter_reg = /---(.*?)---/sg
+        let fontmatter_reg = /---(.*?)---\n/sg
         var fontmatter = fontmatter_reg.exec(raw);
         var fontmatter_yaml = jsyaml.safeLoad(fontmatter[1]);
         if(fontmatter_yaml.title) {
