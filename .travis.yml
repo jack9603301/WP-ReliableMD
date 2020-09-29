@@ -7,6 +7,10 @@ addons:
     packages:
       - mysql-server
       - mysql-client
+  sonarcloud:
+    organization: "jackworkshop" # the key of the org you chose at step #3
+    token:
+      secure: "QAYA9luyobsu8jdtzB02Nz/S5GoLZqeFGculHnxSoTS9w0yQ8oUA1rZFh1sVARgJWt1gTHJuMNKAeu9T8KnGrEWdRISaaLomlcXhvvspyT6ymRQ8OIJMjTYkZJpR5JNs0yZiXxAIXkE6YUbTgxZRNqIzN1QW7ZB3LPCniCeU9VIj8VmC8pA2sV8cMNgdhwk6x1FkJMDAVb9WC3/bPwZOyvzP3WzEkoRIpskFJV0Vq4pR813Q0L9iq29weYcfLMVk871rJx2b9uBW0F8Kwg8bClce6QBA/Qay4Wk+9XM5n+z4FWA5sRkNVgzyxMrwmMhM+bN7L1dq2np8tJ1TuLLMbvZxlv5GI9Hp81CPOau1p9Qmxp+pNhzEgCtRy64Og2cUjeHJRGt7VFi1vROmYpk2hUaihyM97KfJf9pIfK5veSg2wTkdJ5uwn/wmnsCNhanVMa+IpV+KxhZ52vxxDdFqAHnN/vHggocCWdZExEKL7aOogDaAqr3QUNmb42E1M5f/nvwcUntzqx0DraRLSbl2ADqfiMmVrKNb6Ll2D/nAY5wL1BYpqxDQCshQNAnYKVhS2dZ9Z5QNr/GBh+KgFhz5oALxgsEH1dQTEVh05WPebZj1/u2doMCULyhGdVweoiZHOiAbxqo9aCGsRsZxsUXWAUH56KwcbRvqA8qSA4Uvoys=" # encrypted value of your token
 php:
   - 7.3
 services:
@@ -22,5 +26,6 @@ install:
   - yarn install
 script:
  - php vendor/bin/phpunit
+ - /home/travis/.sonarscanner/sonar-scanner/bin/sonar-scanner
 after_success:
   - sh -c 'if( [ "$TRAVIS_PHP_VERSION" != "hhvm" ] ); then php vendor/bin/php-coveralls -v; fi;'
