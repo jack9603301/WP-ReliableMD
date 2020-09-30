@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/jack/SourceCode/WP-ReliableMD/src/View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/style.css" rel="stylesheet" type="text/css">
+  <link href="../.css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/home/jack/SourceCode/WP-ReliableMD/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">View</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Parser.php.html#11">WPReliableMD\View\Parser</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#7">WPReliableMD\View\Controller</a></td><td class="text-right">9%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Parser.php.html#11">WPReliableMD\View\Parser</a></td><td class="text-right">63252</td></tr>
+       <tr><td><a href="Controller.php.html#7">WPReliableMD\View\Controller</a></td><td class="text-right">878</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller.php.html#30"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process">WPReliableMD_Encode_Process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1339"><abbr title="WPReliableMD\View\Parser::parseQuote">parseQuote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#963"><abbr title="WPReliableMD\View\Parser::parseBlockQuote">parseBlockQuote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#988"><abbr title="WPReliableMD\View\Parser::parseBlockTable">parseBlockTable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1048"><abbr title="WPReliableMD\View\Parser::parseBlockSh">parseBlockSh</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1069"><abbr title="WPReliableMD\View\Parser::parseBlockMh">parseBlockMh</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1093"><abbr title="WPReliableMD\View\Parser::parseBlockHr">parseBlockHr</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1112"><abbr title="WPReliableMD\View\Parser::parseBlockDefault">parseBlockDefault</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1150"><abbr title="WPReliableMD\View\Parser::optimizeBlocks">optimizeBlocks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1209"><abbr title="WPReliableMD\View\Parser::parseCode">parseCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1252"><abbr title="WPReliableMD\View\Parser::parsePre">parsePre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1270"><abbr title="WPReliableMD\View\Parser::parseAhtml">parseAhtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1283"><abbr title="WPReliableMD\View\Parser::parseShtml">parseShtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1297"><abbr title="WPReliableMD\View\Parser::parseMath">parseMath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1311"><abbr title="WPReliableMD\View\Parser::parseSh">parseSh</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1326"><abbr title="WPReliableMD\View\Parser::parseMh">parseMh</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1357"><abbr title="WPReliableMD\View\Parser::parseList">parseList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#924"><abbr title="WPReliableMD\View\Parser::parseBlockFootnote">parseBlockFootnote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1442"><abbr title="WPReliableMD\View\Parser::parseTable">parseTable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1547"><abbr title="WPReliableMD\View\Parser::parseHr">parseHr</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1560"><abbr title="WPReliableMD\View\Parser::parseNormal">parseNormal</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1584"><abbr title="WPReliableMD\View\Parser::parseFootnote">parseFootnote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1602"><abbr title="WPReliableMD\View\Parser::parseDefinition">parseDefinition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1615"><abbr title="WPReliableMD\View\Parser::parseHtml">parseHtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1629"><abbr title="WPReliableMD\View\Parser::cleanUrl">cleanUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1644"><abbr title="WPReliableMD\View\Parser::escapeBracket">escapeBracket</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1659"><abbr title="WPReliableMD\View\Parser::startBlock">startBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1674"><abbr title="WPReliableMD\View\Parser::endBlock">endBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1687"><abbr title="WPReliableMD\View\Parser::isBlock">isBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1698"><abbr title="WPReliableMD\View\Parser::getBlock">getBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1710"><abbr title="WPReliableMD\View\Parser::setBlock">setBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1731"><abbr title="WPReliableMD\View\Parser::backBlock">backBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#944"><abbr title="WPReliableMD\View\Parser::parseBlockDefinition">parseBlockDefinition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#892"><abbr title="WPReliableMD\View\Parser::parseBlockHtml">parseBlockHtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#57"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process_Utf8">WPReliableMD_Encode_Process_Utf8</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#193"><abbr title="WPReliableMD\View\Parser::makeHolder">makeHolder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#70"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process_Gb2312">WPReliableMD_Encode_Process_Gb2312</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#101"><abbr title="WPReliableMD\View\Controller::WPReliableMD_the_excerpt">WPReliableMD_the_excerpt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#145"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Enqueue_Scripts">WPReliableMD_Enqueue_Scripts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#174"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Enqueue_Style">WPReliableMD_Enqueue_Style</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#186"><abbr title="WPReliableMD\View\Controller::WPReliableMD_the_Content">WPReliableMD_the_Content</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#197"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Shortcode_Markdown">WPReliableMD_Shortcode_Markdown</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#208"><abbr title="WPReliableMD\View\Controller::WPReliableMD_MarkdownShortcodeText_AntiTransfer">WPReliableMD_MarkdownShortcodeText_AntiTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#229"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Content">WPReliableMD_Content</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#294"><abbr title="WPReliableMD\View\Controller::WPReliableMD_MarkdownText_Transference">WPReliableMD_MarkdownText_Transference</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller.php.html#305"><abbr title="WPReliableMD\View\Controller::WPReliableMD_BackendRendered">WPReliableMD_BackendRendered</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#134"><abbr title="WPReliableMD\View\Parser::makeHtml">makeHtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#167"><abbr title="WPReliableMD\View\Parser::enableHtml">enableHtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#175"><abbr title="WPReliableMD\View\Parser::enableLine">enableLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#184"><abbr title="WPReliableMD\View\Parser::hook">hook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#206"><abbr title="WPReliableMD\View\Parser::initText">initText</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#867"><abbr title="WPReliableMD\View\Parser::parseBlockPre">parseBlockPre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#561"><abbr title="WPReliableMD\View\Parser::parseInlineCallback">parseInlineCallback</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#842"><abbr title="WPReliableMD\View\Parser::parseBlockMath">parseBlockMath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#801"><abbr title="WPReliableMD\View\Parser::parseBlockAhtml">parseBlockAhtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#774"><abbr title="WPReliableMD\View\Parser::parseBlockShtml">parseBlockShtml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#730"><abbr title="WPReliableMD\View\Parser::parseBlockCode">parseBlockCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#692"><abbr title="WPReliableMD\View\Parser::parseBlockList">parseBlockList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#645"><abbr title="WPReliableMD\View\Parser::parseBlock">parseBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#379"><abbr title="WPReliableMD\View\Parser::parseInline">parseInline</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#216"><abbr title="WPReliableMD\View\Parser::makeFootnotes">makeFootnotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#352"><abbr title="WPReliableMD\View\Parser::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#329"><abbr title="WPReliableMD\View\Parser::optimizeLines">optimizeLines</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#314"><abbr title="WPReliableMD\View\Parser::markLines">markLines</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#298"><abbr title="WPReliableMD\View\Parser::markLine">markLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#278"><abbr title="WPReliableMD\View\Parser::releaseHolder">releaseHolder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#248"><abbr title="WPReliableMD\View\Parser::parse">parse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Parser.php.html#1755"><abbr title="WPReliableMD\View\Parser::combineBlock">combineBlock</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Parser.php.html#1442"><abbr title="WPReliableMD\View\Parser::parseTable">parseTable</abbr></a></td><td class="text-right">650</td></tr>
+       <tr><td><a href="Parser.php.html#1357"><abbr title="WPReliableMD\View\Parser::parseList">parseList</abbr></a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Parser.php.html#1150"><abbr title="WPReliableMD\View\Parser::optimizeBlocks">optimizeBlocks</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Parser.php.html#988"><abbr title="WPReliableMD\View\Parser::parseBlockTable">parseBlockTable</abbr></a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Parser.php.html#801"><abbr title="WPReliableMD\View\Parser::parseBlockAhtml">parseBlockAhtml</abbr></a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Parser.php.html#692"><abbr title="WPReliableMD\View\Parser::parseBlockList">parseBlockList</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Parser.php.html#1112"><abbr title="WPReliableMD\View\Parser::parseBlockDefault">parseBlockDefault</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Parser.php.html#379"><abbr title="WPReliableMD\View\Parser::parseInline">parseInline</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Parser.php.html#1209"><abbr title="WPReliableMD\View\Parser::parseCode">parseCode</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Parser.php.html#730"><abbr title="WPReliableMD\View\Parser::parseBlockCode">parseBlockCode</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Parser.php.html#892"><abbr title="WPReliableMD\View\Parser::parseBlockHtml">parseBlockHtml</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Parser.php.html#1069"><abbr title="WPReliableMD\View\Parser::parseBlockMh">parseBlockMh</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Parser.php.html#645"><abbr title="WPReliableMD\View\Parser::parseBlock">parseBlock</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controller.php.html#70"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process_Gb2312">WPReliableMD_Encode_Process_Gb2312</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controller.php.html#305"><abbr title="WPReliableMD\View\Controller::WPReliableMD_BackendRendered">WPReliableMD_BackendRendered</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Parser.php.html#867"><abbr title="WPReliableMD\View\Parser::parseBlockPre">parseBlockPre</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Parser.php.html#963"><abbr title="WPReliableMD\View\Parser::parseBlockQuote">parseBlockQuote</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Parser.php.html#248"><abbr title="WPReliableMD\View\Parser::parse">parse</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Parser.php.html#1560"><abbr title="WPReliableMD\View\Parser::parseNormal">parseNormal</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Parser.php.html#216"><abbr title="WPReliableMD\View\Parser::makeFootnotes">makeFootnotes</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Parser.php.html#774"><abbr title="WPReliableMD\View\Parser::parseBlockShtml">parseBlockShtml</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller.php.html#101"><abbr title="WPReliableMD\View\Controller::WPReliableMD_the_excerpt">WPReliableMD_the_excerpt</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Parser.php.html#842"><abbr title="WPReliableMD\View\Parser::parseBlockMath">parseBlockMath</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Parser.php.html#278"><abbr title="WPReliableMD\View\Parser::releaseHolder">releaseHolder</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Parser.php.html#134"><abbr title="WPReliableMD\View\Parser::makeHtml">makeHtml</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Parser.php.html#298"><abbr title="WPReliableMD\View\Parser::markLine">markLine</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1339"><abbr title="WPReliableMD\View\Parser::parseQuote">parseQuote</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#352"><abbr title="WPReliableMD\View\Parser::call">call</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1629"><abbr title="WPReliableMD\View\Parser::cleanUrl">cleanUrl</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1687"><abbr title="WPReliableMD\View\Parser::isBlock">isBlock</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1710"><abbr title="WPReliableMD\View\Parser::setBlock">setBlock</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1731"><abbr title="WPReliableMD\View\Parser::backBlock">backBlock</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#329"><abbr title="WPReliableMD\View\Parser::optimizeLines">optimizeLines</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1615"><abbr title="WPReliableMD\View\Parser::parseHtml">parseHtml</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1252"><abbr title="WPReliableMD\View\Parser::parsePre">parsePre</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Parser.php.html#1584"><abbr title="WPReliableMD\View\Parser::parseFootnote">parseFootnote</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1547"><abbr title="WPReliableMD\View\Parser::parseHr">parseHr</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1698"><abbr title="WPReliableMD\View\Parser::getBlock">getBlock</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#30"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process">WPReliableMD_Encode_Process</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1311"><abbr title="WPReliableMD\View\Parser::parseSh">parseSh</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1093"><abbr title="WPReliableMD\View\Parser::parseBlockHr">parseBlockHr</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1048"><abbr title="WPReliableMD\View\Parser::parseBlockSh">parseBlockSh</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#944"><abbr title="WPReliableMD\View\Parser::parseBlockDefinition">parseBlockDefinition</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#924"><abbr title="WPReliableMD\View\Parser::parseBlockFootnote">parseBlockFootnote</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#57"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Encode_Process_Utf8">WPReliableMD_Encode_Process_Utf8</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#314"><abbr title="WPReliableMD\View\Parser::markLines">markLines</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#294"><abbr title="WPReliableMD\View\Controller::WPReliableMD_MarkdownText_Transference">WPReliableMD_MarkdownText_Transference</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#229"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Content">WPReliableMD_Content</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#208"><abbr title="WPReliableMD\View\Controller::WPReliableMD_MarkdownShortcodeText_AntiTransfer">WPReliableMD_MarkdownShortcodeText_AntiTransfer</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#186"><abbr title="WPReliableMD\View\Controller::WPReliableMD_the_Content">WPReliableMD_the_Content</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller.php.html#145"><abbr title="WPReliableMD\View\Controller::WPReliableMD_Enqueue_Scripts">WPReliableMD_Enqueue_Scripts</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Parser.php.html#1755"><abbr title="WPReliableMD\View\Parser::combineBlock">combineBlock</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.1.4</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.9</a> with <a href="https://xdebug.org/">Xdebug 2.8.0</a> and <a href="https://phpunit.de/">PHPUnit 7.5.20</a> at Wed Sep 30 7:55:30 UTC 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([1,1,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([68,0,0,0,0,0,0,0,0,0,0,1], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[9.9236641221374047,34,"<a href=\"Controller.php.html#7\">WPReliableMD\\View\\Controller<\/a>"],[0,251,"<a href=\"Parser.php.html#11\">WPReliableMD\\View\\Parser<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller.php.html#9\">WPReliableMD\\View\\Controller::__construct<\/a>"],[0,2,"<a href=\"Controller.php.html#30\">WPReliableMD\\View\\Controller::WPReliableMD_Encode_Process<\/a>"],[0,2,"<a href=\"Controller.php.html#57\">WPReliableMD\\View\\Controller::WPReliableMD_Encode_Process_Utf8<\/a>"],[0,7,"<a href=\"Controller.php.html#70\">WPReliableMD\\View\\Controller::WPReliableMD_Encode_Process_Gb2312<\/a>"],[0,4,"<a href=\"Controller.php.html#101\">WPReliableMD\\View\\Controller::WPReliableMD_the_excerpt<\/a>"],[0,2,"<a href=\"Controller.php.html#145\">WPReliableMD\\View\\Controller::WPReliableMD_Enqueue_Scripts<\/a>"],[0,1,"<a href=\"Controller.php.html#174\">WPReliableMD\\View\\Controller::WPReliableMD_Enqueue_Style<\/a>"],[0,2,"<a href=\"Controller.php.html#186\">WPReliableMD\\View\\Controller::WPReliableMD_the_Content<\/a>"],[0,1,"<a href=\"Controller.php.html#197\">WPReliableMD\\View\\Controller::WPReliableMD_Shortcode_Markdown<\/a>"],[0,2,"<a href=\"Controller.php.html#208\">WPReliableMD\\View\\Controller::WPReliableMD_MarkdownShortcodeText_AntiTransfer<\/a>"],[0,2,"<a href=\"Controller.php.html#229\">WPReliableMD\\View\\Controller::WPReliableMD_Content<\/a>"],[0,2,"<a href=\"Controller.php.html#294\">WPReliableMD\\View\\Controller::WPReliableMD_MarkdownText_Transference<\/a>"],[0,6,"<a href=\"Controller.php.html#305\">WPReliableMD\\View\\Controller::WPReliableMD_BackendRendered<\/a>"],[0,4,"<a href=\"Parser.php.html#134\">WPReliableMD\\View\\Parser::makeHtml<\/a>"],[0,1,"<a href=\"Parser.php.html#167\">WPReliableMD\\View\\Parser::enableHtml<\/a>"],[0,1,"<a href=\"Parser.php.html#175\">WPReliableMD\\View\\Parser::enableLine<\/a>"],[0,1,"<a href=\"Parser.php.html#184\">WPReliableMD\\View\\Parser::hook<\/a>"],[0,1,"<a href=\"Parser.php.html#193\">WPReliableMD\\View\\Parser::makeHolder<\/a>"],[0,1,"<a href=\"Parser.php.html#206\">WPReliableMD\\View\\Parser::initText<\/a>"],[0,5,"<a href=\"Parser.php.html#216\">WPReliableMD\\View\\Parser::makeFootnotes<\/a>"],[0,5,"<a href=\"Parser.php.html#248\">WPReliableMD\\View\\Parser::parse<\/a>"],[0,4,"<a href=\"Parser.php.html#278\">WPReliableMD\\View\\Parser::releaseHolder<\/a>"],[0,3,"<a href=\"Parser.php.html#298\">WPReliableMD\\View\\Parser::markLine<\/a>"],[0,2,"<a href=\"Parser.php.html#314\">WPReliableMD\\View\\Parser::markLines<\/a>"],[0,3,"<a href=\"Parser.php.html#329\">WPReliableMD\\View\\Parser::optimizeLines<\/a>"],[0,3,"<a href=\"Parser.php.html#352\">WPReliableMD\\View\\Parser::call<\/a>"],[0,8,"<a href=\"Parser.php.html#379\">WPReliableMD\\View\\Parser::parseInline<\/a>"],[0,1,"<a href=\"Parser.php.html#561\">WPReliableMD\\View\\Parser::parseInlineCallback<\/a>"],[0,7,"<a href=\"Parser.php.html#645\">WPReliableMD\\View\\Parser::parseBlock<\/a>"],[0,10,"<a href=\"Parser.php.html#692\">WPReliableMD\\View\\Parser::parseBlockList<\/a>"],[0,8,"<a href=\"Parser.php.html#730\">WPReliableMD\\View\\Parser::parseBlockCode<\/a>"],[0,5,"<a href=\"Parser.php.html#774\">WPReliableMD\\View\\Parser::parseBlockShtml<\/a>"],[0,11,"<a href=\"Parser.php.html#801\">WPReliableMD\\View\\Parser::parseBlockAhtml<\/a>"],[0,4,"<a href=\"Parser.php.html#842\">WPReliableMD\\View\\Parser::parseBlockMath<\/a>"],[0,5,"<a href=\"Parser.php.html#867\">WPReliableMD\\View\\Parser::parseBlockPre<\/a>"],[0,7,"<a href=\"Parser.php.html#892\">WPReliableMD\\View\\Parser::parseBlockHtml<\/a>"],[0,2,"<a href=\"Parser.php.html#924\">WPReliableMD\\View\\Parser::parseBlockFootnote<\/a>"],[0,2,"<a href=\"Parser.php.html#944\">WPReliableMD\\View\\Parser::parseBlockDefinition<\/a>"],[0,5,"<a href=\"Parser.php.html#963\">WPReliableMD\\View\\Parser::parseBlockQuote<\/a>"],[0,14,"<a href=\"Parser.php.html#988\">WPReliableMD\\View\\Parser::parseBlockTable<\/a>"],[0,2,"<a href=\"Parser.php.html#1048\">WPReliableMD\\View\\Parser::parseBlockSh<\/a>"],[0,7,"<a href=\"Parser.php.html#1069\">WPReliableMD\\View\\Parser::parseBlockMh<\/a>"],[0,2,"<a href=\"Parser.php.html#1093\">WPReliableMD\\View\\Parser::parseBlockHr<\/a>"],[0,9,"<a href=\"Parser.php.html#1112\">WPReliableMD\\View\\Parser::parseBlockDefault<\/a>"],[0,15,"<a href=\"Parser.php.html#1150\">WPReliableMD\\View\\Parser::optimizeBlocks<\/a>"],[0,8,"<a href=\"Parser.php.html#1209\">WPReliableMD\\View\\Parser::parseCode<\/a>"],[0,3,"<a href=\"Parser.php.html#1252\">WPReliableMD\\View\\Parser::parsePre<\/a>"],[0,1,"<a href=\"Parser.php.html#1270\">WPReliableMD\\View\\Parser::parseAhtml<\/a>"],[0,1,"<a href=\"Parser.php.html#1283\">WPReliableMD\\View\\Parser::parseShtml<\/a>"],[0,1,"<a href=\"Parser.php.html#1297\">WPReliableMD\\View\\Parser::parseMath<\/a>"],[0,2,"<a href=\"Parser.php.html#1311\">WPReliableMD\\View\\Parser::parseSh<\/a>"],[0,1,"<a href=\"Parser.php.html#1326\">WPReliableMD\\View\\Parser::parseMh<\/a>"],[0,3,"<a href=\"Parser.php.html#1339\">WPReliableMD\\View\\Parser::parseQuote<\/a>"],[0,16,"<a href=\"Parser.php.html#1357\">WPReliableMD\\View\\Parser::parseList<\/a>"],[0,25,"<a href=\"Parser.php.html#1442\">WPReliableMD\\View\\Parser::parseTable<\/a>"],[0,2,"<a href=\"Parser.php.html#1547\">WPReliableMD\\View\\Parser::parseHr<\/a>"],[0,5,"<a href=\"Parser.php.html#1560\">WPReliableMD\\View\\Parser::parseNormal<\/a>"],[0,2,"<a href=\"Parser.php.html#1584\">WPReliableMD\\View\\Parser::parseFootnote<\/a>"],[0,1,"<a href=\"Parser.php.html#1602\">WPReliableMD\\View\\Parser::parseDefinition<\/a>"],[0,3,"<a href=\"Parser.php.html#1615\">WPReliableMD\\View\\Parser::parseHtml<\/a>"],[0,3,"<a href=\"Parser.php.html#1629\">WPReliableMD\\View\\Parser::cleanUrl<\/a>"],[0,1,"<a href=\"Parser.php.html#1644\">WPReliableMD\\View\\Parser::escapeBracket<\/a>"],[0,1,"<a href=\"Parser.php.html#1659\">WPReliableMD\\View\\Parser::startBlock<\/a>"],[0,1,"<a href=\"Parser.php.html#1674\">WPReliableMD\\View\\Parser::endBlock<\/a>"],[0,3,"<a href=\"Parser.php.html#1687\">WPReliableMD\\View\\Parser::isBlock<\/a>"],[0,2,"<a href=\"Parser.php.html#1698\">WPReliableMD\\View\\Parser::getBlock<\/a>"],[0,3,"<a href=\"Parser.php.html#1710\">WPReliableMD\\View\\Parser::setBlock<\/a>"],[0,3,"<a href=\"Parser.php.html#1731\">WPReliableMD\\View\\Parser::backBlock<\/a>"],[0,2,"<a href=\"Parser.php.html#1755\">WPReliableMD\\View\\Parser::combineBlock<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

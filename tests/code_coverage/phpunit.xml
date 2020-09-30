@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Plugin Test Suite" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.085004">
+    <testsuite name="WPReliableMDRoot" file="/home/jack/SourceCode/WP-ReliableMD/tests/WP-ReliableMD/test.WP-ReliableMD.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.062514">
+      <testcase name="test_init" class="WPReliableMDRoot" classname="WPReliableMDRoot" file="/home/jack/SourceCode/WP-ReliableMD/tests/WP-ReliableMD/test.WP-ReliableMD.php" line="4" assertions="1" time="0.062514"/>
+    </testsuite>
+    <testsuite name="Sample" file="/home/jack/SourceCode/WP-ReliableMD/tests/test.sample.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.022490">
+      <testcase name="test_sample" class="Sample" classname="Sample" file="/home/jack/SourceCode/WP-ReliableMD/tests/test.sample.php" line="3" assertions="1" time="0.022490"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
