@@ -1,12 +1,12 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['tui-viewer','tui-editor','markdown-it-mathsupport', 'katex', 'katex-autorender'], factory);
+        define(['tui-viewer','tui-editor', 'katex', 'katex-autorender'], factory);
     } else if (typeof exports === 'object') {
-        factory([require('tui-viewer'),require('tui-editor'),require('markdown-it-mathsupport'), require('katex'), require('katex-autorender')]);
+        factory([require('tui-viewer'),require('tui-editor'), require('katex'), require('katex-autorender')]);
     } else {
-        factory(root['tui']['Viewer'],root['tui']['Editor'],root['markdown-it-mathsupport'], root['katex'], root['katex-autorender']);
+        factory(root['tui']['Viewer'],root['tui']['Editor'], root['katex'], root['katex-autorender']);
     }
-})(this, function (Viewer,Editor,mdi_mathsupport, katex, katex_autorender) {
+})(this, function (Viewer,Editor,katex, katex_autorender) {
     function extracted(EditorOrViewer, isEditor) {
         EditorOrViewer.setCodeBlockLanguages([
             'latex',
@@ -57,12 +57,8 @@
         };
 
 
-        //var mathrender = mdi_mathsupport(option);
         console.log(html);
-        //html.el.innerHTML = mathrender(html.el.innerHTML);
-        //mathrender(html);
         katex_autorender(html.el, option);
-        //html.el.innerHTML = math_render(html.el.innerHTML, option);
         return html;
     }
 
@@ -75,12 +71,8 @@
         };
 
 
-        //var mathrender = mdi_mathsupport(option);
         console.log(el);
-        //html.el.innerHTML = mathrender(html.el.innerHTML);
-        //mathrender(html);
         katex_autorender(el, option);
-        //html.el.innerHTML = math_render(html.el.innerHTML, option);
         return el;
     }
 

@@ -25,7 +25,6 @@ function configure_requirejs() {
             'tui-viewer': lib_dep + '@toast-ui/editor/dist/toastui-editor-viewer',
             'jquery': lib_dep + 'jquery/dist/jquery',
             'codemirror': lib_dep + 'codemirror/lib/codemirror',
-            'markdown-it': lib_dep + 'markdown-it/dist/markdown-it',
             'to-mark': lib_dep + 'to-mark/dist/to-mark',
             'tui-code-snippet': lib_js + 'tui-code-snippet/tui-code-snippet',
             'tui-color-picker': lib_js + 'tui-color-picker/tui-color-picker',
