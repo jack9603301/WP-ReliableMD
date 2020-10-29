@@ -4,13 +4,13 @@
   "description": "## 简介",
   "main": "Gruntfile.js",
   "dependencies": {
-    "@toast-ui/editor": "^2.0.1",
+    "@toast-ui/editor": "^2.5.0",
     "@toast-ui/editor-plugin-chart": "^1.0.0",
     "@toast-ui/editor-plugin-code-syntax-highlight": "^1.0.0",
     "@toast-ui/editor-plugin-color-syntax": "^1.0.0",
-    "@toast-ui/editor-plugin-table-merged-cell": "^1.0.0",
+    "@toast-ui/editor-plugin-table-merged-cell": "^1.3.0",
     "@toast-ui/editor-plugin-uml": "^1.0.0",
-    "codemirror": "^5.52.2",
+    "codemirror": "^5.58.2",
     "eve": "^0.5.4",
     "highlight.js": "^9.18.1",
     "jquery": "^3.4.1",
@@ -21,7 +21,7 @@
     "to-mark": "^1.1.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.12.3",
     "babel-preset-es2015": "^7.0.0-beta.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
