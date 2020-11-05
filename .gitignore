@@ -1,6 +1,7 @@
 .*
 .*/
 vendor/*
+composer.lock
 composer.local
 package-lock.json
 */package-lock.json
