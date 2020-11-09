@@ -55,6 +55,7 @@ class Controller {
 			//如果是markdown文章，则输出
 			$markdown = $post->post_content;
 			$data['content']['markdown'] = $markdown;
+			$data['markdown'] = true;
 			//处理markdown的REST输出处理
 			$content = $markdown;
 			$content = ViewController::WPReliableMD_Content($content);
@@ -72,6 +73,8 @@ class Controller {
 		 	 *   - $data : JSON before processing.
 		 	 */
 			$data = apply_filters('markdown_rest_post_override',$data);
+		} else {
+            $data['markdown'] = false;
 		}
 
 

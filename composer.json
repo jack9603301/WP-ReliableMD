@@ -1,5 +1,5 @@
 {
-  "name": "WP-ReliableMD",
+  "name": "jackworkshop/wp-reliablemd",
   "description": "或许这是WordPress中很好用的Markdown插件",
   "type": "wordpress-plugin",
   "repositories": {
@@ -39,7 +39,7 @@
   "require": {
     "php": ">=5.3.0"
   },
-  "homepage": "https://github.com/jack9603301/WP-ReliableMD",
+  "homepage": "https://github.com/jackworkshop/WP-ReliableMD",
   "require-dev": {
     "atoum/atoum": "^3.4",
     "php-coveralls/php-coveralls": "^2.2",
