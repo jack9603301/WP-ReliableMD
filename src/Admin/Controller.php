@@ -16,6 +16,7 @@ class Controller {
 		//add_filter( 'admin_head', array( $this, 'WPReliableMD_Enqueue_Style' ), 2 );
 
 		add_filter( 'admin_body_class', array( $this, 'WPReliableMD_admin_body_class' ) );
+		add_filter( 'enable_post_type', array( $this, 'WPReliableMD_enable_post_type' ),10,2 );
 		$this->config_filename = WPReliableMD_PATH.'/config.json';
 	}
 
@@ -214,6 +215,15 @@ class Controller {
 		<?php
 		do_action('admin_enqueue_style');
 	}
+	
+	public function WPReliableMD_enable_post_type($enable, $post_type) {
+        if($post_type != 'post') {
+            return $enable;
+		} else {
+            $enable = true;
+            return $enable;
+		}
+	}
 
 	public function WPReliableMD_init( $return, $post ) {
 		global $title, $post_type;
@@ -221,6 +231,23 @@ class Controller {
 		if($post_type == null) {
 			return $return;
 		}
+		
+		
+		/*
+		 * filter  : enable_post_type($enable, $post_type)
+		 * comment : Allow specific post_type types to use WP_Markdown editor
+		 * params  :
+		 *   - $enable : If true, it means that the WP_ReliableMD editor should be enabled
+		 *   - $post_type: Pass the current post_type
+		 */
+        
+        $enable = false;
+		 
+        $enable =  apply_filters('enable_post_type',$enable,$post_type);
+        
+        if($enable == false) {
+            return $return;
+        }
 
 		if ( true === $return && current_filter() === 'replace_editor' ) {
 			return $return;
