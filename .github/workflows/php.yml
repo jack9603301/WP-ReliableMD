@@ -41,6 +41,7 @@ jobs:
       
       - name: Install
         run: |
+          netstat -tlnp
           php vendor/bin/phpunit --log-junit  tests/code_coverage/phpunit.xml 
       
       - name: Post Test
