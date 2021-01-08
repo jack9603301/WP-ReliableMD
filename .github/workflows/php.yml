@@ -1,0 +1,47 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Clone this repo
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: main
+      
+      - name: Install Mariadb
+        uses: getong/mariadb-action@v1.1
+        with:
+          mysql root password: wptest
+          mysql user: wptest
+          mysql password: wptest
+          mysql database: wptest
+      
+      - name: PHP Composer
+        uses: baschny/php-composer-action@1.0
+        with:
+          command: install
+      
+      - name: Yarn Install
+        uses: Jaid/action-npm-install@v1.2.4
+        with:
+          packageManager: yarn
+      
+      - name: Pre Test
+        run: |
+          mkdir -p tests/code_coverage/
+      
+      - name: Install
+        run: |
+          php vendor/bin/phpunit --log-junit  tests/code_coverage/phpunit.xml 
+      
+      - name: Post Test
+        uses: SonarSource/sonarcloud-github-action@v1.4
