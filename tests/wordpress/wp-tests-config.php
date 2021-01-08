@@ -11,7 +11,7 @@ define( 'WP_DEBUG', false );
 define( 'DB_NAME', 'wptest' );
 define( 'DB_USER', 'wptest' );
 define( 'DB_PASSWORD', 'wptest' );
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '127.0.0.1' );
 define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
  
