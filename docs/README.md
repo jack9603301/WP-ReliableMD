@@ -12,7 +12,7 @@
 
 ## 思维导图 :id=plantuml-Mind
 
-![思维导图](/WP-ReliableMD思维导图.png)
+![思维导图](/WP-ReliableMD_Mind.png)
 
 ## 特性 :id=Feature
 

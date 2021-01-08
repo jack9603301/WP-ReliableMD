@@ -15,7 +15,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 [English document](README.md) [中文文档](README_zh_CN.md)
 
-[![Gitter](https://badges.gitter.im/WP-ReliableMD/community.svg)](https://gitter.im/WP-ReliableMD/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Quality Gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jackworkshop:WP-ReliableMD)](https://sonarcloud.io/dashboard?id=jackworkshop%3AWP-ReliableMD) [![Build Status](https://travis-ci.org/jackworkshop/WP-ReliableMD.svg?branch=master)](https://travis-ci.org/jackworkshop/WP-ReliableMD)
+[![Gitter](https://badges.gitter.im/WP-ReliableMD/community.svg)](https://gitter.im/WP-ReliableMD/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Quality Gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jackworkshop:WP-ReliableMD)](https://sonarcloud.io/dashboard?id=jackworkshop%3AWP-ReliableMD) [![PHP Composer](https://github.com/jackworkshop/WP-ReliableMD/workflows/PHP%20Composer/badge.svg)](https://github.com/jackworkshop/WP-ReliableMD/actions)
 
 ## brief introduction
 
