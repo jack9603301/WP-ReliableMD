@@ -14,23 +14,25 @@ jobs:
     steps:
       - name: Git Clone this repo
         uses: actions/checkout@v2.3.4
+
+      - name: Setup PHP 7.4
+        uses: nanasess/setup-php@v3.0.6
         with:
-          ref: main
+          php-version: 7.4
     
       - name: Setup Mariadb
         run: |
           curl -LsS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
           sudo apt update
-          sudo apt-get install -y mariadb-server
+          sudo apt-get install -y mariadb-server-10.5
           sudo systemctl start mariadb
           sudo mysql -uroot -proot -e 'create database wptest;'
           sudo mysql -uroot -proot -e "CREATE USER 'wptest'@'%' IDENTIFIED BY 'wptest';"
           sudo mysql -uroot -proot -e "GRANT ALL ON wptest.* TO 'wptest'@'%';"
       
       - name: PHP Composer
-        uses: baschny/php-composer-action@1.0
-        with:
-          command: install
+        run: |
+          ./composer.phar install
       
       - name: Yarn Install
         uses: Jaid/action-npm-install@v1.2.4
