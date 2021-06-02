@@ -12,7 +12,7 @@
 }
 
 #wpbody-content {
-    position: absolute;
+  position: absolute;
 	width: 100%;
 }
 
@@ -162,7 +162,7 @@ a, div {
 .js .postbox .handlediv:focus .toggle-indicator::before {
 
 	box-shadow: 0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,.8);
-	
+
 }
 
 
@@ -174,9 +174,6 @@ a, div {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-decoration: none !important;
-}
-
-
 }
 
 .js .postbox .handlediv .toggle-indicator::before {

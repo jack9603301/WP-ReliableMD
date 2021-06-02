@@ -41,7 +41,8 @@ class Controller {
 
 	public function WPReliableMD_Register_Style() {
 
-		$js_dep_lib_root = 'https://cdn.jsdelivr.net/npm/';
+		//$js_dep_lib_root = 'https://cdn.jsdelivr.net/npm/';
+		$js_dep_lib_root = WPReliableMD_URL. '/node_modules/';
 		wp_register_style( 'dashicons-css', ABSPATH . '/wp-includes/css/dashicons.min.css', array(), WPReliableMD_VER, false );
 		wp_register_style( 'normalize', WPReliableMD_URL . '/css/normalize.css', array(), WPReliableMD_VER, false );
 		wp_register_style( 'codemirror', $js_dep_lib_root.'/codemirror/lib/codemirror.css', array( 'normalize' ), WPReliableMD_VER, false );

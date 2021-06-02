@@ -33,7 +33,7 @@ class Controller {
 		);
 		wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
 		wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
-		
+
 		wp_enqueue_script('post');
 		wp_enqueue_script('postbox');
 		wp_enqueue_script( 'require' );
@@ -41,7 +41,7 @@ class Controller {
 		wp_enqueue_script('DateExt');
 		wp_enqueue_script('CallBackManager');
 		wp_enqueue_script('tags-box');
-		wp_enqueue_script( 'common' );  
+		wp_enqueue_script( 'common' );
 
 
 		$CallbackCustomScripts = array();
@@ -81,7 +81,7 @@ class Controller {
 		wp_enqueue_style( 'tui-chart' );
 		wp_enqueue_style( 'katex' );
 		wp_enqueue_style( 'ReliableMD' );
-		
+
 	}
 
 	public function WPReliableMD_admin_body_class($classes) {
@@ -215,7 +215,7 @@ class Controller {
 		<?php
 		do_action('admin_enqueue_style');
 	}
-	
+
 	public function WPReliableMD_enable_post_type($enable, $post_type) {
         if($post_type != 'post') {
             return $enable;
@@ -231,8 +231,8 @@ class Controller {
 		if($post_type == null) {
 			return $return;
 		}
-		
-		
+
+
 		/*
 		 * filter  : enable_post_type($enable, $post_type)
 		 * comment : Allow specific post_type types to use WP_Markdown editor
@@ -240,11 +240,11 @@ class Controller {
 		 *   - $enable : If true, it means that the WP_ReliableMD editor should be enabled
 		 *   - $post_type: Pass the current post_type
 		 */
-        
+
         $enable = false;
-		 
+
         $enable =  apply_filters('enable_post_type',$enable,$post_type);
-        
+
         if($enable == false) {
             return $return;
         }
