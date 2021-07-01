@@ -36,6 +36,12 @@ class Controller {
 
 		wp_enqueue_script('post');
 		wp_enqueue_script('postbox');
+		wp_enqueue_script( 'tui-editor' );
+		wp_enqueue_script( 'tui-chart' );
+		wp_enqueue_script( 'tui-code-syntax-highlight' );
+		wp_enqueue_script( 'tui-color-syntax' );
+		wp_enqueue_script( 'tui-table-merged-cell' );
+		wp_enqueue_script( 'tui-uml' );
 		wp_enqueue_script( 'require' );
 		wp_enqueue_script( 'require-paths' );
 		wp_enqueue_script('DateExt');
@@ -76,9 +82,12 @@ class Controller {
 		wp_enqueue_style( 'codemirror' );
 		wp_enqueue_style( 'github' );
 		wp_enqueue_style( 'tui-editor' );
-		wp_enqueue_style( 'tui-editor-contents' );
-		wp_enqueue_style( 'tui-color-picker' );
 		wp_enqueue_style( 'tui-chart' );
+		wp_enqueue_style( 'tui-prism' );
+		wp_enqueue_style( 'tui-code-syntax-highlight' );
+		wp_enqueue_style( 'tui-color-picker' );
+		wp_enqueue_style( 'tui-color-syntax' );
+		wp_enqueue_style( 'tui-table-merged-cell' );
 		wp_enqueue_style( 'katex' );
 		wp_enqueue_style( 'ReliableMD' );
 

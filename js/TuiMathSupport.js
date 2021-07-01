@@ -1,12 +1,13 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['tui-viewer','tui-editor', 'katex', 'katex-autorender'], factory);
+        define(['katex', 'katex-autorender'], factory);
     } else if (typeof exports === 'object') {
-        factory([require('tui-viewer'),require('tui-editor'), require('katex'), require('katex-autorender')]);
+        factory([require('katex'), require('katex-autorender')]);
     } else {
-        factory(root['tui']['Viewer'],root['tui']['Editor'], root['katex'], root['katex-autorender']);
+        factory(root['katex'], root['katex-autorender']);
     }
-})(this, function (Viewer,Editor,katex, katex_autorender) {
+})(this, function (katex, katex_autorender) {
+    const Editor = toastui.Editor;
     function extracted(EditorOrViewer, isEditor) {
         EditorOrViewer.setCodeBlockLanguages([
             'latex',
@@ -41,7 +42,7 @@
         } else {
             Viewer.codeBlockManager.setReplacer('latex', function (ltx) {
                 return option.renderer(ltx, 'DisplayMath');
-            }); 
+            });
             Viewer.codeBlockManager.setReplacer('inlinelatex', function (ltx) {
                 return option.renderer(ltx, 'InlineMath');
             });
@@ -78,6 +79,3 @@
 
     return extracted;
 });
-
-
-

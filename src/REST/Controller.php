@@ -48,6 +48,7 @@ class Controller {
 	}
 
 	public function WPReliableMD_REST_Posts($response, $post, $request  ) {
+        global $ReliableMDViewController;
 		$data = $response->data;
 		$postid = $post->ID;
 
@@ -58,7 +59,7 @@ class Controller {
 			$data['markdown'] = true;
 			//处理markdown的REST输出处理
 			$content = $markdown;
-			$content = ViewController::WPReliableMD_Content($content);
+			$content = $ReliableMDViewController->WPReliableMD_Content($content);
 			$data['content']['rendered'] = $content;
 
 			//读取信头

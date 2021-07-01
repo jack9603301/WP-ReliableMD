@@ -1,4 +1,4 @@
-define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml','tui-mathsupport'], function ($, Viewer, mathsupport, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml,tuimath) {
+define(['jquery','tui-mathsupport'], function ($, tuimath) {
     var hash = function (text) {
         // if you wanna enable cache, the hash function must be the same as it in WP-ReliableMDFrontend.js
         var h = 0;
@@ -55,6 +55,8 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
                 console.log('loaded');
             }
 
+            const Viewer  = toastui.Editor;
+
             const chartOptions = {
                 minWidth: 100,
                 maxWidth: 600,
@@ -70,7 +72,7 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
                 events: {
                     load: viewerLoader
                 },
-                plugins: [
+                /*plugins: [
                     [
                         chart,
                         chartOptions
@@ -79,7 +81,7 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
                     TableMergedCell,
                     Uml,
                     mathsupport
-                ],
+                ],*/
             });
             console.log(viewer);
 
@@ -98,4 +100,3 @@ define(['jquery', 'tui-viewer', 'viewer-mathsupport', 'tui-chart', 'tui-code-syn
     //module.exports = renderer;
     return renderer;
 });
-
