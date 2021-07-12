@@ -1,10 +1,10 @@
 // Start the main app logic.
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
-requirejs(['jquery','htmlToText','editor-mathsupport','js-yaml'],
+requirejs(['jquery','htmlToText','tui-mathsupport','js-yaml'],
   function ($,htmlToText,mathsupport,jsyaml) {
     const Editor  = toastui.Editor;
-    const { chart } = Editor.plugin;
+    const { chart, codeSyntaxHighlight, tableMergedCell, uml  } = Editor.plugin;
     
     var AricaleMetaCallBackManager = CallBackManager(
       'AricaleMetaCallBackManager'
@@ -483,15 +483,14 @@ requirejs(['jquery','htmlToText','editor-mathsupport','js-yaml'],
         useCommandShortcut: true,
         frontMatter: true,
         language: 'zh-CN',
-        initialValue: content//,
-        //plugins: [
-        //  [chart, chartOptions],
-        //  codeSyntaxHighlight,
-        //  TableMergedCell,
-        //  Uml//,
-          //mathsupport,
-        //],
-        //customConvertor: MarkdowConvertor
+        initialValue: content,
+        plugins: [
+          [chart, chartOptions],
+          codeSyntaxHighlight,
+          tableMergedCell,
+          uml,
+          mathsupport,
+        ],
       });
 
       console.log(editor.preview.eventManager);

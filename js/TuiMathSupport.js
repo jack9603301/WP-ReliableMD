@@ -1,81 +1,29 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['katex', 'katex-autorender'], factory);
+        define(factory);
     } else if (typeof exports === 'object') {
-        factory([require('katex'), require('katex-autorender')]);
+        factory();
     } else {
-        factory(root['katex'], root['katex-autorender']);
+        factory();
     }
-})(this, function (katex, katex_autorender) {
-    const Editor = toastui.Editor;
-    function extracted(EditorOrViewer, isEditor) {
-        EditorOrViewer.setCodeBlockLanguages([
-            'latex',
-            'inlinelatex'
-        ]);
-        var math_render = katex.renderToString;
-        var option = {
-            renderer: function (text, type) {
-                if (type === 'InlineMath') {
-                    return '<span style="display: inline;">' + math_render(text, {
-                        displayMode: false,
-                        throwOnError: false
-                    }) + '</span>'
-                }
-                else // type === 'DisplayMath'
-                {
-                    return '<span style="display: block;">' + math_render(text, {
-                        displayMode: true,
-                        throwOnError: false
-                    }) + '</span>'
-                }
+})(this, function () {
+    
+    function latex() {
+        const toHTMLRenderers = {
+            latex(node) {
+                const generator = new latexjs.HtmlGenerator({ hyphenate: true });
+                const { body } = latexjs.parse(node.literal, { generator }).htmlDocument();
+                
+                return [
+                    { type: 'openTag', tagName: 'div', outerNewLine: true },
+                    { type: 'html', content: body.innerHTML },
+                    { type: 'closeTag', tagName: 'div', outerNewLine: true }
+                ];
             }
-        };
-
-        if(isEditor) {
-            Editor.codeBlockManager.setReplacer('latex', function (ltx) {
-                return option.renderer(ltx, 'DisplayMath');
-            });
-            Editor.codeBlockManager.setReplacer('inlinelatex', function (ltx) {
-                return option.renderer(ltx, 'InlineMath');
-            });
-        } else {
-            Viewer.codeBlockManager.setReplacer('latex', function (ltx) {
-                return option.renderer(ltx, 'DisplayMath');
-            });
-            Viewer.codeBlockManager.setReplacer('inlinelatex', function (ltx) {
-                return option.renderer(ltx, 'InlineMath');
-            });
         }
+        return { toHTMLRenderers };
     }
-
-    extracted.previewRender = function (html) {
-        var option = {
-            delimiters: [
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ]
-        };
-
-
-        console.log(html);
-        katex_autorender(html.el, option);
-        return html;
-    }
-
-    extracted.viewerRender = function (el) {
-        var option = {
-            delimiters: [
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ]
-        };
-
-
-        console.log(el);
-        katex_autorender(el, option);
-        return el;
-    }
-
-    return extracted;
+    
+    return latex;
+    
 });

@@ -165,9 +165,12 @@ class Controller {
 
 		wp_localize_script( 'WPReliableMDFrontend', 'ReliableMD', $ReliableMDSetting );
         wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
-        wp_enqueue_script( 'tui-viewer' );
+        wp_enqueue_script( 'latexjs' );
+        wp_enqueue_script( 'tui-editor' );
         wp_enqueue_script( 'tui-chart' );
+        wp_enqueue_script( 'tui-chart-plugin' );
         wp_enqueue_script( 'tui-code-syntax-highlight' );
+        wp_enqueue_script( 'tui-color-picker' );
         wp_enqueue_script( 'tui-color-syntax' );
         wp_enqueue_script( 'tui-table-merged-cell' );
         wp_enqueue_script( 'tui-uml' );
@@ -180,6 +183,10 @@ class Controller {
 		wp_enqueue_style( 'normalize' );
 		wp_enqueue_style( 'codemirror' );
 		wp_enqueue_style( 'github' );
+		wp_enqueue_style( 'latexjs-base' );
+		wp_enqueue_style( 'latexjs-article' );
+		wp_enqueue_style( 'latexjs-book' );
+		wp_enqueue_style( 'latexjs-katex' );
 		wp_enqueue_style( 'tui-viewer' );
 		wp_enqueue_style( 'tui-chart' );
 		wp_enqueue_style( 'tui-prism' );

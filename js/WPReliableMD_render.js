@@ -1,4 +1,4 @@
-define(['jquery','tui-mathsupport'], function ($, tuimath) {
+define(['jquery','tui-mathsupport'], function ($, mathsupport) {
     var hash = function (text) {
         // if you wanna enable cache, the hash function must be the same as it in WP-ReliableMDFrontend.js
         var h = 0;
@@ -56,6 +56,7 @@ define(['jquery','tui-mathsupport'], function ($, tuimath) {
             }
 
             const Viewer  = toastui.Editor;
+            const { chart, codeSyntaxHighlight, tableMergedCell, uml  } = Viewer.plugin;
 
             const chartOptions = {
                 minWidth: 100,
@@ -64,29 +65,27 @@ define(['jquery','tui-mathsupport'], function ($, tuimath) {
                 maxHeight: 300
             };
 
-            var viewer = new Viewer({
+            var viewer = new Viewer.factory({
                 el: ele[0],
                 viewer: true,
+                useCommandShortcut: true,
                 frontMatter: true,
                 initialValue: ptext,
                 events: {
                     load: viewerLoader
                 },
-                /*plugins: [
+                plugins: [
                     [
                         chart,
                         chartOptions
                     ],
                     codeSyntaxHighlight,
-                    TableMergedCell,
-                    Uml,
+                    tableMergedCell,
+                    uml,
                     mathsupport
-                ],*/
+                ]
             });
             console.log(viewer);
-
-            var markdownblock = document.querySelector('.markdown-block')
-            markdownblock = tuimath.viewerRender(markdownblock);
 
 
             $('[data-te-task]').removeAttr('data-te-task');
