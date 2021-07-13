@@ -33,9 +33,7 @@ Editor is under development, not officially released, not recommended
 ## Feature support
 
 - [x] Basic markdown
-- [ ] Support formula rendering
-  - [x] Katex
-  - [ ] MathJax
+- [x] Support Latex rendering
 - [x] Front end + back end, secondary rendering support
 - [ ] Extensible custom theme
 - [ ] Support UML

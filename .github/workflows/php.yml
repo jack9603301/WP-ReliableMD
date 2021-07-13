@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -LsS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
           sudo apt update
-          sudo apt-get install -y mariadb-server-10.5
+          sudo apt-get install -y mariadb-server
           sudo systemctl start mariadb
           sudo mysql -uroot -proot -e 'create database wptest;'
           sudo mysql -uroot -proot -e "CREATE USER 'wptest'@'%' IDENTIFIED BY 'wptest';"

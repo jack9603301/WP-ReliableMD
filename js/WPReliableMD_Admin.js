@@ -1,10 +1,10 @@
 // Start the main app logic.
 //requirejs(['jquery', 'tui-editor', 'editor-mathsupport', 'htmlToText', 'MarkdowConvertor'], function ($, Editor, mathsupport, htmlToText, MarkdowConvertor) {
 //requirejs(['jquery', 'tui-editor', 'tui-chart', 'tui-code-syntax-highlight', 'tui-color-syntax', 'tui-table-merged-cell', 'tui-uml', 'htmlToText', 'MarkdowConvertor', 'editor-mathsupport', 'tui-mathsupport'], function ($, Editor, chart, codeSyntaxHighlight, colorSyntax, TableMergedCell, Uml, htmlToText, MarkdowConvertor, mathsupport, viewerMathsupport) {
-requirejs(['jquery','htmlToText','tui-mathsupport','js-yaml'],
-  function ($,htmlToText,mathsupport,jsyaml) {
+requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
+  function ($, htmlToText, mathsupport, jsyaml) {
     const Editor  = toastui.Editor;
-    const { chart, codeSyntaxHighlight, tableMergedCell, uml  } = Editor.plugin;
+    const { chart, colorSyntax, codeSyntaxHighlight, tableMergedCell, uml  } = Editor.plugin;
     
     var AricaleMetaCallBackManager = CallBackManager(
       'AricaleMetaCallBackManager'
@@ -473,6 +473,34 @@ requirejs(['jquery','htmlToText','tui-mathsupport','js-yaml'],
         'Auto scroll disabled': '自动滚动已禁用',
         'Choose language': '选择语言',
       });
+      
+      function createLatexButton() {
+          const button = document.createElement('button');
+
+          button.className = 'toastui-editor-toolbar-icons last';
+          button.style.backgroundImage = 'none';
+          button.style.margin = '0';
+          button.innerHTML = `<i>Latex</i>`;
+          button.addEventListener('click', () => {
+              editor.exec('latex');
+          });
+
+          return button;
+      }
+      
+      function createCustomBlockButton() {
+          const button = document.createElement('button');
+
+          button.className = 'toastui-editor-toolbar-icons last';
+          button.style.backgroundImage = 'none';
+          button.style.margin = '0';
+          button.innerHTML = `<i>Custom Block</i>`;
+          button.addEventListener('click', () => {
+              editor.exec('customblock');
+          });
+
+          return button;
+      }
 
 
       editor = new Editor({
@@ -484,16 +512,69 @@ requirejs(['jquery','htmlToText','tui-mathsupport','js-yaml'],
         frontMatter: true,
         language: 'zh-CN',
         initialValue: content,
+        customHTMLRenderer: {
+          htmlBlock: {
+            iframe(node) {
+              return [
+                { type: 'openTag', tagName: 'iframe', outerNewLine: true, attributes: node.attrs },
+                { type: 'html', content: node.childrenHTML },
+                { type: 'closeTag', tagName: 'iframe', outerNewLine: true },
+              ];
+            },
+          },
+          htmlInline: {
+            big(node, { entering }) {
+                return entering
+                  ? { type: 'openTag', tagName: 'big', attributes: node.attrs }
+                  : { type: 'closeTag', tagName: 'big' };
+            },
+          },
+        },
+        toolbarItems: [
+          ['heading', 'bold', 'italic', 'strike'],
+          ['hr', 'quote'],
+          ['ul', 'ol', 'task', 'indent', 'outdent'],
+          ['table', 'image', 'link'],
+          ['code', 'codeblock'],
+          // Using Option: Customize the last button
+          [{
+              el: createLatexButton(),
+              command: 'latex',
+              tooltip: 'Latex'
+          }],
+          [{
+              el: createCustomBlockButton(),
+              command: 'customblock',
+              tooltip: 'Custom block'
+          }]
+        ],
         plugins: [
           [chart, chartOptions],
+          colorSyntax,
           codeSyntaxHighlight,
           tableMergedCell,
           uml,
           mathsupport,
         ],
       });
-
-      console.log(editor.preview.eventManager);
+      
+      console.log(editor.insertText)
+      
+      editor.addCommand('markdown', 'latex', function() {
+        editor.insertText('$$latex\n$$\n');
+      });
+      
+      editor.addCommand('wysiwyg', 'latex', function() {
+        editor.insertText('$$latex\n$$\n');
+      });
+      
+      editor.addCommand('wysiwyg', 'customblock', function() {
+        editor.insertText('$$\n$$\n');
+      });
+      
+      editor.addCommand('markdown', 'customblock', function() {
+        editor.insertText('$$\n$$\n');
+      });
 
     });
   }

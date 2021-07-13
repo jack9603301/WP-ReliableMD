@@ -9,10 +9,10 @@ requirejs(['jquery'], function($){
 		return "" + h;
 	};
 	var callback = function ($node) {
-        	//if($node.parent().attr('class') === 'markdown-block')
-        if($node.parent().is(".markdown-block")) {
-        	return $node.parent()
-        }
+    //if($node.parent().attr('class') === 'markdown-block')
+    if($node.parent().is(".markdown-block")) {
+      return $node.parent()
+    }
 		var $new_node = $("<div></div>");
 		$node.after($new_node);
 		$node.remove();
@@ -70,7 +70,7 @@ requirejs(['jquery'], function($){
 	});
 	if(cnt > 0) {
 		requirejs(['ReliableMD_render'], function (render) {
-    		render.setCallback(callback);
+      render.setCallback(callback);
 		});
 	}
 });

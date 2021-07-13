@@ -314,6 +314,9 @@ class Controller {
 
 		if(!$is_backend_rendered) {
 			$markdown = str_replace(array("\r\n", "\r", "\n"),'&br;',$markdown);
+			$markdown = str_replace(array("<"),'&lt;',$markdown);
+			$markdown = str_replace(array(">"),'&gt;',$markdown);
+			$markdown = str_replace(array("\""),'&quot;',$markdown);
 		}
 
 
