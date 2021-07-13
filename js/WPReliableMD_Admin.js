@@ -512,7 +512,8 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
         initialEditType: 'markdown',
         useCommandShortcut: true,
         extendedAutolinks: true,
-        //hideModeSwitch: true,
+        referenceDefinition: true,
+        hideModeSwitch: false,
         frontMatter: true,
         language: 'zh-CN',
         initialValue: content,
@@ -538,6 +539,18 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
               type: 'html',
               content: '\n<br />\n'
             }
+          }
+        },
+        customMarkdownRenderer: {
+          html(state, ConvertorContent) {
+            if(state.node.type.name == 'iframe') {
+              var convert = ConvertorContent.origin();
+              if(convert) {
+                convert.text = convert.text + '\n\n';
+              }
+              return convert;
+            }
+            return ConvertorContent.origin();
           }
         },
         widgetRules: [

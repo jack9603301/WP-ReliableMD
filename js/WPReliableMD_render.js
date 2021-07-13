@@ -118,6 +118,8 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
         viewer: true,
         useCommandShortcut: true,
         frontMatter: true,
+        referenceDefinition: true,
+        extendedAutolinks: true,
         initialValue: ptext,
         customHTMLRenderer: {
           htmlBlock: {
