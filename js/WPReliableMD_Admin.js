@@ -480,7 +480,7 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
           button.className = 'toastui-editor-toolbar-icons last';
           button.style.backgroundImage = 'none';
           button.style.margin = '0';
-          button.innerHTML = `<i>Latex</i>`;
+          button.innerHTML = `<i>L</i>`;
           button.addEventListener('click', () => {
               editor.exec('latex');
           });
@@ -494,7 +494,7 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
           button.className = 'toastui-editor-toolbar-icons last';
           button.style.backgroundImage = 'none';
           button.style.margin = '0';
-          button.innerHTML = `<i>Custom Block</i>`;
+          button.innerHTML = `<i>CuB</i>`;
           button.addEventListener('click', () => {
               editor.exec('customblock');
           });
@@ -584,16 +584,19 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
           ['table', 'image', 'link'],
           ['code', 'codeblock'],
           // Using Option: Customize the last button
-          [{
+          [
+            {
               el: createLatexButton(),
               command: 'latex',
               tooltip: 'Latex'
-          }],
-          [{
+            },
+            {
               el: createCustomBlockButton(),
               command: 'customblock',
               tooltip: 'Custom block'
-          }]
+            }
+          ],
+          ['scrollSync']
         ],
         plugins: [
           [chart, chartOptions],
