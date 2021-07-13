@@ -504,13 +504,15 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
 
       const reWidgetRule = /\[(@\S+)\]\((\S+)\)/;
       const atWidgetRule = /\((@\S+)\)/;
-
-      editor = new Editor({
+      
+      var options = {
         el: document.querySelector('#editSection'),
         previewStyle: 'vertical',
         height: '600px',
         initialEditType: 'markdown',
         useCommandShortcut: true,
+        extendedAutolinks: true,
+        //hideModeSwitch: true,
         frontMatter: true,
         language: 'zh-CN',
         initialValue: content,
@@ -531,6 +533,12 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
                   : { type: 'closeTag', tagName: 'big' };
             },
           },
+          linebreak(node, context) {
+            return {
+              type: 'html',
+              content: '\n<br />\n'
+            }
+          }
         },
         widgetRules: [
           {
@@ -582,7 +590,9 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
           uml,
           mathsupport,
         ],
-      });
+      };
+
+      editor = new Editor(options);
       
       console.log(editor.insertText)
       

@@ -97,7 +97,7 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
         },
       ];
       
-      var StopSearch = false
+      var StopSearch = false;
       
       //Support WidgetRule conversion compatible with editor
       while(!StopSearch) {
@@ -111,9 +111,9 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
             StopSearch = true
           }
         });
-      }
-
-      var viewer = new Viewer.factory({
+      };
+      
+      var options = {
         el: ele[0],
         viewer: true,
         useCommandShortcut: true,
@@ -136,6 +136,12 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
                   : { type: 'closeTag', tagName: 'big' };
             },
           },
+          linebreak(node, context) {
+            return {
+              type: 'html',
+              content: '\n<br />\n'
+            }
+          }
         },
         events: {
           load: viewerLoader
@@ -151,7 +157,9 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
           mathsupport,
           test
         ]
-      });
+      };
+
+      var viewer = new Viewer.factory(options);
       console.log(viewer);
 
 
