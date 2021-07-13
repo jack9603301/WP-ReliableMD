@@ -40,3 +40,11 @@
 .tui-editor-contents li {
   list-style: none;
 }
+
+.widget-anchor {
+    border-radius: 20px;
+    border: 1px solid darkmagenta;
+    background: darkmagenta;
+    color: white !important;
+    text-decoration: none !important;
+}

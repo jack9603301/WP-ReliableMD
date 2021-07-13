@@ -39,7 +39,7 @@ class Controller {
 		wp_register_script( 'require-paths', WPReliableMD_URL . '/js/require_paths.js', array( 'require' ), WPReliableMD_VER, false );
 		wp_register_script( 'DateExt', WPReliableMD_URL . '/js/DateExt.js', array( 'require-paths' ), WPReliableMD_VER, false );
 		wp_register_script( 'CallBackManager', WPReliableMD_URL . '/js/CallBackManager.js', array( 'DateExt' ), WPReliableMD_VER, false );
-		wp_register_script( 'ReliableMD', WPReliableMD_URL . '/js/WPReliableMD_Admin.js', array( 'CallBackManager' ), WPReliableMD_VER, false );
+		wp_register_script( 'WPReliableMD', WPReliableMD_URL . '/js/WPReliableMD_Admin.js', array( 'CallBackManager' ), WPReliableMD_VER, false );
 		wp_register_script( 'WPReliableMDFrontend', WPReliableMD_URL . '/js/WPReliableMDFrontend.js', array( 'require-paths' ), WPReliableMD_VER, false );
 		//wp_localize_script( 'ReliableMD', 'ReliableMD', $ReliableMDSetting );
 		//wp_localize_script( 'require-paths', 'ReliableMD', $ReliableMDSetting );
@@ -62,16 +62,14 @@ class Controller {
 		wp_register_style( 'latexjs-book', WPReliableMD_URL .'/node_modules/latex.js/dist/css/book.css', array( 'github' ), WPReliableMD_VER, false );
 		wp_register_style( 'latexjs-katex', WPReliableMD_URL .'/node_modules/latex.js/dist/css/katex.css', array( 'github' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-editor', '//uicdn.toast.com/editor/latest/toastui-editor.min.css', array( 'github' ), WPReliableMD_VER, false );
-		wp_register_style( 'tui-viewer', '//uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css', array( 'github' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-chart', '//uicdn.toast.com/chart/latest/toastui-chart.min.css', array( ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-prism', '//cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css', array( ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-code-syntax-highlight', '//uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.css', array( 'tui-prism' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-color-picker', '//uicdn.toast.com/tui-color-picker/latest/tui-color-picker.min.css', array( ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-color-syntax', '//uicdn.toast.com/editor-plugin-color-syntax/latest/toastui-editor-plugin-color-syntax.min.css', array( 'tui-color-picker' ), WPReliableMD_VER, false );
 		wp_register_style( 'tui-table-merged-cell', '//uicdn.toast.com/editor-plugin-table-merged-cell/latest/toastui-editor-plugin-table-merged-cell.min.css', array( ), WPReliableMD_VER, false );
-		wp_register_style( 'katex', $js_dep_lib_root.'katex/dist/katex.css', array(  ), WPReliableMD_VER, false );
-		wp_register_style( 'ReliableMD', WPReliableMD_URL . '/css/WPReliableMD_Admin.css', array( 'katex' ), WPReliableMD_VER, false );
-		wp_register_style( 'WPReliableMDFrontend', WPReliableMD_URL . '/css/WPReliableMDFrontend.css', array( 'katex' ), WPReliableMD_VER, false );
+		wp_register_style( 'WPReliableMD', WPReliableMD_URL . '/css/WPReliableMD_Admin.css', array( ), WPReliableMD_VER, false );
+		wp_register_style( 'WPReliableMDFrontend', WPReliableMD_URL . '/css/WPReliableMDFrontend.css', array( ), WPReliableMD_VER, false );
 	}
 }
 

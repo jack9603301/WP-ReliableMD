@@ -63,6 +63,55 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
         minHeight: 100,
         maxHeight: 300
       };
+      
+      const reWidgetRule = /\[(@\S+)\]\((\S+)\)/;
+      const atWidgetRule = /\((@\S+)\)/;
+      
+      function test(model) {
+        console.log(model)
+        return model
+      }
+      
+      const WidgetRules = [
+        {
+          rule: atWidgetRule,
+          toDOM(text) {
+            const rule = atWidgetRule;
+            const matched = text.match(rule);
+            const span = document.createElement('span');
+  
+            span.innerHTML = `<a class="widget-anchor">${matched[1]}</a>`;
+            return span;
+          },
+        },
+        {
+          rule: reWidgetRule,
+          toDOM(text) {
+            const rule = reWidgetRule;
+            const matched = text.match(rule);
+            const span = document.createElement('span');
+  
+            span.innerHTML = `<a class="widget-anchor" href="${matched[2]}">${matched[1]}</a>`;
+            return span;
+          },
+        },
+      ];
+      
+      var StopSearch = false
+      
+      //Support WidgetRule conversion compatible with editor
+      while(!StopSearch) {
+        WidgetRules.forEach(function(item) {
+          const rule = item.rule;
+          const matched = ptext.match(rule);
+          if(matched) {
+            var body = item.toDOM(matched[0]);
+            ptext = ptext.replace(matched[0], body.innerHTML)
+          } else {
+            StopSearch = true
+          }
+        });
+      }
 
       var viewer = new Viewer.factory({
         el: ele[0],
@@ -99,7 +148,8 @@ define(['jquery','tui-mathsupport'], function ($, mathsupport) {
           codeSyntaxHighlight,
           tableMergedCell,
           uml,
-          mathsupport
+          mathsupport,
+          test
         ]
       });
       console.log(viewer);

@@ -187,14 +187,13 @@ class Controller {
 		wp_enqueue_style( 'latexjs-article' );
 		wp_enqueue_style( 'latexjs-book' );
 		wp_enqueue_style( 'latexjs-katex' );
-		wp_enqueue_style( 'tui-viewer' );
+		wp_enqueue_style( 'tui-editor' );
 		wp_enqueue_style( 'tui-chart' );
 		wp_enqueue_style( 'tui-prism' );
 		wp_enqueue_style( 'tui-code-syntax-highlight' );
 		wp_enqueue_style( 'tui-color-picker' );
 		wp_enqueue_style( 'tui-color-syntax' );
 		wp_enqueue_style( 'tui-table-merged-cell' );
-		wp_enqueue_style( 'katex' );
 		wp_enqueue_style( 'WPReliableMDFrontend' );
 	}
 

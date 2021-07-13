@@ -76,7 +76,7 @@ class Controller {
 			 }
 		 }
 
-		 wp_enqueue_script( 'ReliableMD' );
+		 wp_enqueue_script( 'WPReliableMD' );
 		 //do_action('admin_enqueue_scripts');
 	}
 
@@ -95,8 +95,7 @@ class Controller {
 		wp_enqueue_style( 'tui-color-picker' );
 		wp_enqueue_style( 'tui-color-syntax' );
 		wp_enqueue_style( 'tui-table-merged-cell' );
-		wp_enqueue_style( 'katex' );
-		wp_enqueue_style( 'ReliableMD' );
+		wp_enqueue_style( 'WPReliableMD' );
 
 	}
 

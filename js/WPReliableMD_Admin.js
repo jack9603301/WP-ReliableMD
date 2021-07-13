@@ -502,6 +502,8 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
           return button;
       }
 
+      const reWidgetRule = /\[(@\S+)\]\((\S+)\)/;
+      const atWidgetRule = /\((@\S+)\)/;
 
       editor = new Editor({
         el: document.querySelector('#editSection'),
@@ -530,6 +532,30 @@ requirejs(['jquery', 'htmlToText', 'tui-mathsupport', 'js-yaml'],
             },
           },
         },
+        widgetRules: [
+          {
+            rule: atWidgetRule,
+            toDOM(text) {
+              const rule = atWidgetRule;
+              const matched = text.match(rule);
+              const span = document.createElement('span');
+  
+              span.innerHTML = `<a class="widget-anchor">${matched[1]}</a>`;
+              return span;
+            },
+          },
+          {
+            rule: reWidgetRule,
+            toDOM(text) {
+              const rule = reWidgetRule;
+              const matched = text.match(rule);
+              const span = document.createElement('span');
+  
+              span.innerHTML = `<a class="widget-anchor" href="${matched[2]}">${matched[1]}</a>`;
+              return span;
+            },
+          },
+        ],
         toolbarItems: [
           ['heading', 'bold', 'italic', 'strike'],
           ['hr', 'quote'],
