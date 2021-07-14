@@ -32,6 +32,8 @@ jobs:
       
       - name: PHP Composer
         run: |
+          mv composer.json composer.json.old
+          mv composer_github.json composer.json
           ./composer.phar install
       
       - name: Yarn Install

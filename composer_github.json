@@ -1,0 +1,42 @@
+{
+  "name": "jackworkshop/wp-reliablemd",
+  "description": "或许这是WordPress中很好用的Markdown插件",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "wordpress"
+  ],
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "jack9603301",
+      "email": "jack9603301@163.com",
+      "homepage": "https://www.qhjack.cn/"
+    },
+    {
+      "name": "QiuJiangkun",
+      "email": "qiujiangkun@foxmail.com",
+      "homepage": "https://blog.jackhack.top/"
+    }
+
+  ],
+  "autoload": {
+    "psr-4": {
+      "WPReliableMD\\": "src/",
+      "WPReliableMD\\Admin\\": "src/Admin",
+      "WPReliableMD\\REST\\": "src/REST",
+      "WPReliableMD\\View\\": "src/View",
+      "WPReliableMD\\Environment\\": "src/Environment",
+      "WPReliableMD\\Meta\\": "src/Meta"
+
+    }
+  },
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "homepage": "https://github.com/jackworkshop/WP-ReliableMD",
+  "require-dev": {
+    "atoum/atoum": "^3.4",
+    "php-coveralls/php-coveralls": "^2.2",
+    "phpunit/phpunit": "7.*"
+  }
+}
