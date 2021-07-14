@@ -5,54 +5,88 @@ title: WP-ReliableMD Demo
 ![image](https://cloud.githubusercontent.com/assets/389021/16107646/9729e556-33d8-11e6-933f-5b09fa3a53bb.png)
 
 # GFM Markdown
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
+
 ###### Heading 6
-\\[f(x)=x^2\\] block
 
-test\\(f_2(x)=2^{f(x)}\\) inline
+$$latex
+\documentclass{article}
+\begin{document}
 
-```latex
-f(x)=x^2
+\begin{center}
+\$ \& \% \# \_ \{ \} \~{} \^{} \textbackslash % \< \>  \"   % TODO cannot be typeset
+\end{center}
+
+\[
+f(x) = \int_{-\infty}^\infty \hat f(\xi),e^{2 \pi i \xi x} , d\xi
+\]
+
+\(
+f(x) = \int_{-\infty}^\infty \hat f(\xi),e^{2 \pi i \xi x} , d\xi
+\)
+\end{document}
+$$
+
+```
+code block
 ```
 
-```inlinelatex
-f_2(x)=2^{f(x)}
-```
-
-    code block
 ```js
-console.log("fenced code block");
+console.log(“fenced code block”);
 ```
-<pre>**HTML block**</pre>
+
+**HTML block**
+
 * list
 * list indented
+
 1. ordered
 2. list
-1. ordered list
-2. indented
+3. ordered list
+4. indented
 
-- [ ] task
-- [x] list completed
+* [ ] task1
+* [x] task2
+* 222
 
 [link](https://nhnent.github.io/tui.editor/)
+
 > block quote
----
-horizontal line
+> —
+> horizontal line
+
 ***
-`code`, *italic*, **bold**, ~~strikethrough~~, <span style="color:#e11d21">Red color</span>
+
+`code`, *italic*, **bold**, ~~strikethrough~~, Red color
+
+# Hyperlink references author
+
+author
+
+$$widget0 (@jack9603301)$$ $$widget0 (@jack9603301)$$
+
+ $$widget1 [@jack9603301](#)$$ $$widget1 [@jack9603301](#)$$ $$widget1 [@jack9603301](#)$$
+
+# Color Syntax Plugin
+
+<span style="color:#86c1b9">Click the color picker button on the toolbar!</span>
 
 # Table Cell Merge
 
 | @cols=2:merged |
-| --- | --- |
-| table | table |
+| ------ | ------ |
+| table | table2 |
 
 # Charts
 
-```chart
+$$chart
 , Seoul , Sydney , Moskva
 Jan,20, 5, 30
 Feb,40, 30, 5
@@ -76,27 +110,31 @@ y.pointOnColumn: true
 y.suffix: °C
 tooltip.suffix:°C
 legend.visible: true
-```
-
+$$
 
 # UML
 
-```uml
-class BaseClass
-
-namespace net.dummy #DDDDDD {
-.BaseClass <|-- Person
-Meeting o-- Person
-
-.BaseClass <|- Meeting
+$$uml
+partition Conductor {
+  (*) --> "Climbs on Platform"
+  --> === S1 ===
+  --> Bows
 }
 
-namespace net.foo {
-net.dummy.Person  <|- Person
-.BaseClass <|-- Person
-
-net.dummy.Meeting o-- Person
+partition Audience #LightSkyBlue {
+  === S1 === --> Applauds
 }
 
-BaseClass <|-- net.unused.Person
-```
+partition Conductor {
+  Bows --> === S2 ===
+  --> WavesArmes
+  Applauds --> === S2 ===
+}
+
+partition Orchestra #CCCCEE {
+  WavesArmes --> Introduction
+  --> "Play music"
+}
+$$
+
+
